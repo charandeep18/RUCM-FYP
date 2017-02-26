@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import org.fxmisc.richtext.StyleClassedTextArea?>
+
+<AnchorPane fx:id="MainStage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="700.0" stylesheets="@GherkinView.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presenter.GherkinPresenter">
+   <children>
+      <MenuBar fx:id="MenuBar" prefHeight="32.0" prefWidth="700.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem fx:id="saveContents" mnemonicParsing="false" onAction="#SaveFile" text="Save Text File" />
+                  <MenuItem fx:id="loadFile" mnemonicParsing="false" onAction="#OpenFile" text="Load Text File" />
+                  <MenuItem fx:id="exit" mnemonicParsing="false" onAction="#ExitApplication" text="Close Program" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="View">
+            <items>
+                  <MenuItem mnemonicParsing="false" text="Gherkin/RUCM" />
+              <MenuItem mnemonicParsing="false" text="Selenium" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Run Options">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Open Chrome" />
+                  <MenuItem mnemonicParsing="false" text="Open FireFox" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Guide" />
+                  <MenuItem mnemonicParsing="false" text="About " />
+               </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+      <SplitPane dividerPositions="0.29797979797979796" layoutY="31.0" prefHeight="600.0" prefWidth="700.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="403.0" prefWidth="174.0">
+               <children>
+                  <GridPane fx:id="GridPane" layoutY="106.0" prefHeight="376.0" prefWidth="204.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button fx:id="saveButton" alignment="CENTER" mnemonicParsing="false" onAction="#SaveFile" prefHeight="31.0" prefWidth="170.0" text="Save Test Case" textAlignment="CENTER" GridPane.columnIndex="1" />
+                        <Button fx:id="loadButton" alignment="CENTER" mnemonicParsing="false" onAction="#OpenFile" prefHeight="31.0" prefWidth="181.0" text="Load Test Case" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="203.0" text="Create Step Defs" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Button fx:id="closeButton" mnemonicParsing="false" onAction="#ExitApplication" prefHeight="31.0" prefWidth="220.0" text="Exit Application" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="225.0" text="Seleniun View" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Button fx:id="validateButton" mnemonicParsing="false" onAction="#validateText" prefHeight="31.0" prefWidth="189.0" text="Validate Script" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                     </children>
+                  </GridPane>
+                  <Label layoutX="11.0" layoutY="574.0" prefHeight="21.0" prefWidth="204.0" text="Created by Charandeep Rai">
+                     <font>
+                        <Font name="Calibri" size="15.0" />
+                     </font>
+                  </Label>
+               </children></AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="385.0" prefWidth="416.0">
+               <children>
+                  <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="600.0" prefWidth="486.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <StyleClassedTextArea fx:id="readTextArea" layoutX="-1.0" layoutY="1.0" prefHeight="295.0" prefWidth="486.0" stylesheets="@GherkinView.css" wrapText="true" />
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <TextArea fx:id="validationArea" editable="false" prefHeight="295.0" prefWidth="484.0" text="Test Case Validation:&#10;&#10;Checks to see if the Gherkin script is syntactically correct and valid." wrapText="true" />
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children></AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
