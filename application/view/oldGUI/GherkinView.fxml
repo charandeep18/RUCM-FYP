@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <SplitPane dividerPositions="0.29797979797979796" layoutY="31.0" prefHeight="570.0" prefWidth="600.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="403.0" prefWidth="174.0">
+               <children>
+                  <GridPane layoutX="1.0" layoutY="114.0" prefHeight="324.0" prefWidth="174.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="137.0" text="Load Test Case" textAlignment="CENTER" GridPane.columnIndex="1" />
+                        <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="139.0" text="Create Defs" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="127.0" text="Exit Application" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="Seleniun View" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                     </children>
+                  </GridPane>
+               </children></AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="385.0" prefWidth="416.0">
+               <children>
+                  <TextArea prefHeight="251.0" prefWidth="416.0" text="Sample Gherkin Script:&#10;&#10;Feature: Openwebpage&#10;This is going to be a test to ensure that the selenium &#10;webdriver is able to open up the tests as intended.&#10;&#10;Scenario: Successfully opening Website.&#10;&#10;Given user navigates to Website&#10;&#10;Then navigate to Link-1 Homepage &#10;&#10;" wrapText="true" />
+                  <TextArea layoutY="262.0" prefHeight="296.0" prefWidth="416.0" text="Test Case Validation:&#10;&#10;Checks to see if the Gherkin script is syntactically correct and valid." wrapText="true" />
+               </children></AnchorPane>
+        </items>
+      </SplitPane>
+      <MenuBar prefHeight="32.0" prefWidth="600.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Save Results" />
+                  <MenuItem fx:id="exit" mnemonicParsing="false" onAction="#ExitApplication" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="View">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Selenium" />
+                  <MenuItem mnemonicParsing="false" text="Gherkin/RUCM" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Selenium">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Chrome" />
+                  <MenuItem mnemonicParsing="false" text="FireFox" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Guide" />
+               </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+   </children>
+</AnchorPane>
