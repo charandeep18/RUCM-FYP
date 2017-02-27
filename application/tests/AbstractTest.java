@@ -32,6 +32,7 @@ public abstract class AbstractTest extends ApplicationTest  {
 		release(new MouseButton[]{});
 	}
 	
+	@SuppressWarnings("unchecked")
 	public <T extends Node> T find(final String query){
 		return (T) lookup(query).queryAll().iterator().next();
 	}

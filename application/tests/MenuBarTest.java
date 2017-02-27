@@ -9,6 +9,7 @@ import org.testfx.util.WaitForAsyncUtils;
 
 public class MenuBarTest extends AbstractTest {
 
+	final String MENU_BAR ="#MenuBar";
 	final String SAVE_CONTENTS = "#saveConents";
 	final String LOAD_CONTENTS = "#loadFile";
 	final String EXIT_APPLICATION = "#exit";
