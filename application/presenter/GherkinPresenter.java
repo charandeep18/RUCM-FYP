@@ -57,6 +57,12 @@ public class GherkinPresenter {
 	    
 	    @FXML
 	    private Button validateButton;
+	    
+	    @FXML
+	    private Button seleniumViewButton;
+	    
+	    @FXML
+	    private Button createStepDefsButton;
 
 //FXML Items for GUI-Right 		
 
