@@ -4,6 +4,9 @@ import org.junit.Test;
 
 import com.google.common.base.Verify;
 import static org.testfx.api.FxAssert.*;
+
+import java.io.File;
+
 import org.junit.*;
 import org.testfx.*;
 import org.testfx.matcher.base.NodeMatchers;
@@ -27,6 +30,9 @@ public class SideBarTest extends AbstractTest {
 	
 	@Test
 	public void clickOnSaveButton(){
+		File file = new File("text.txt");
+		if()
+		
 		verifyThat(SAVE_BUTTON, NodeMatchers.isNotNull());
 		verifyThat(SAVE_BUTTON, NodeMatchers.hasText("Save Test Case"));
 		clickOn("#saveButton");
@@ -51,7 +57,6 @@ public class SideBarTest extends AbstractTest {
 		verifyThat(SELENIUM_BUTTON, NodeMatchers.isNotNull());
 		verifyThat(SELENIUM_BUTTON, NodeMatchers.hasText("Selenium View"));
 		clickOn("#seleniumViewButton");
-
 	}
 	
 	@Test
