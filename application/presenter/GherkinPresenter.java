@@ -19,7 +19,9 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import org.fxmisc.richtext.RichTextChange;
 import org.fxmisc.richtext.StyleClassedTextArea;
@@ -122,20 +124,9 @@ public class GherkinPresenter {
 	    
 	    @FXML
 	    public void ExitApplication(ActionEvent event) {
-			try {
-				FXMLLoader fxmlLoader = FXMLLoader.load(getClass().getResource("HelpView.fxml"));
-				Parent parent1 = (Parent) fxmlLoader.load();
-				Stage stage = new Stage();
-				stage.setScene(new Scene(parent1));
-				stage.show();
-			} catch (IOException e) {
-					e.printStackTrace();
-			}
-	    	
-	    	
-//	    	Platform.exit();
-//			System.exit(0);
-//			System.out.println("Program has closed successfully");
+	    	Platform.exit();
+			System.exit(0);
+			System.out.println("Program has closed successfully");
 	    }
 	    
 	    @FXML
@@ -154,7 +145,18 @@ public class GherkinPresenter {
 	    
 	    @FXML
 	    public void OpenHelp(ActionEvent event){
-
+			try {
+				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/HelpView.fxml"));
+				Parent parent1 = (Parent) fxmlLoader.load();
+				Stage stage = new Stage();
+				stage.setTitle("Help");
+				stage.initModality(Modality.APPLICATION_MODAL);
+				stage.initStyle(StageStyle.DECORATED);
+				stage.setScene(new Scene(parent1));
+				stage.show();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 
 	    }
 	    
