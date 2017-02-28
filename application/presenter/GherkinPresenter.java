@@ -48,15 +48,6 @@ public class GherkinPresenter {
 		@FXML
 		private Menu menuFile;
 		
-		@FXML
-		private Menu menuView;
-		
-		@FXML
-		private Menu menuRunOptions;
-		
-		@FXML
-		private Menu menuHelp;
-		
 	    @FXML
 	    private MenuItem loadFile;		
 		
@@ -65,7 +56,19 @@ public class GherkinPresenter {
 	    
 	    @FXML
 	    private MenuItem exit;
-	    
+		
+	    @FXML
+		private Menu menuView;
+		
+		@FXML
+		private Menu menuRunOptions;
+		
+		@FXML
+		private Menu menuHelp;
+		
+		@FXML
+		private MenuItem menuHelpItem;
+		
 //FXML Items for GUI-Left
 	    
 		@FXML

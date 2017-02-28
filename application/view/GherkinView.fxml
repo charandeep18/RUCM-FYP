@@ -37,7 +37,10 @@
                   <MenuItem mnemonicParsing="false" text="Open FireFox" />
                </items>
             </Menu>
-            <Menu fx:id="menuHelp" mnemonicParsing="false" onAction="#OpenHelp" text="Help" />
+            <Menu fx:id="menuHelp" mnemonicParsing="false" onAction="#OpenHelp" text="Help">
+               <items>
+                  <MenuItem fx:id="helpMenuItem" mnemonicParsing="false" onAction="#OpenHelp" text="Help" />
+               </items></Menu>
         </menus>
       </MenuBar>
       <SplitPane dividerPositions="0.29797979797979796" layoutY="31.0" prefHeight="600.0" prefWidth="700.0">
