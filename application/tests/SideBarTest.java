@@ -3,6 +3,9 @@ package tests;
 import org.junit.Test;
 
 import com.google.common.base.Verify;
+
+import javafx.stage.FileChooser;
+
 import static org.testfx.api.FxAssert.*;
 
 import java.io.File;
@@ -29,13 +32,17 @@ public class SideBarTest extends AbstractTest {
 	}
 	
 	@Test
-	public void clickOnSaveButton(){
-		File file = new File("text.txt");
-		if()
+	public void clickOnSaveButton(String Content, File file){
+		file = new File("text.txt");
+		FileChooser filechooser = new FileChooser();
 		
 		verifyThat(SAVE_BUTTON, NodeMatchers.isNotNull());
 		verifyThat(SAVE_BUTTON, NodeMatchers.hasText("Save Test Case"));
 		clickOn("#saveButton");
+		
+		//assertThat(filechooser.)
+		
+		
 	}
 	
 	@Test
