@@ -147,10 +147,9 @@ public class GherkinPresenter {
 FXMLLoader fxmlLoader = FXMLLoader.load(getClass().getResource("HelpView.fxml"));
 Parent parent1 = (Parent) fxmlLoader.load();
 Stage stage = new Stage();
-stage.setScene(newScene(parent1));
-
+stage.setScene(new Scene(parent1));
+stage.show();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 					e.printStackTrace();
 			}
 
