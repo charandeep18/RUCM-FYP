@@ -66,13 +66,13 @@
                      <children>
                         <Button fx:id="saveButton" alignment="CENTER" mnemonicParsing="false" onAction="#SaveFile" prefHeight="31.0" prefWidth="170.0" text="Save Test Case" textAlignment="CENTER" GridPane.columnIndex="1" />
                         <Button fx:id="loadButton" alignment="CENTER" mnemonicParsing="false" onAction="#OpenFile" prefHeight="31.0" prefWidth="181.0" text="Load Test Case" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="203.0" text="Create Step Defs" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Button fx:id="createStepDefsButton" mnemonicParsing="false" prefHeight="31.0" prefWidth="203.0" text="Create Step Defs" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                         <Button fx:id="closeButton" mnemonicParsing="false" onAction="#ExitApplication" prefHeight="31.0" prefWidth="220.0" text="Exit Application" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                        <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="225.0" text="Seleniun View" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Button fx:id="seleniumViewButton" mnemonicParsing="false" prefHeight="31.0" prefWidth="225.0" text="Selenium View" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                         <Button fx:id="validateButton" mnemonicParsing="false" onAction="#validateText" prefHeight="31.0" prefWidth="189.0" text="Validate Script" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
-                  <Label layoutX="11.0" layoutY="574.0" prefHeight="21.0" prefWidth="204.0" text="Created by Charandeep Rai">
+                  <Label fx:id="nameLabel" layoutX="11.0" layoutY="574.0" prefHeight="21.0" prefWidth="204.0" text="Created by Charandeep Rai">
                      <font>
                         <Font name="Calibri" size="15.0" />
                      </font>
