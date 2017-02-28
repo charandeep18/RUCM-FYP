@@ -122,9 +122,20 @@ public class GherkinPresenter {
 	    
 	    @FXML
 	    public void ExitApplication(ActionEvent event) {
-			Platform.exit();
-			System.exit(0);
-			System.out.println("Program has closed successfully");
+			try {
+				FXMLLoader fxmlLoader = FXMLLoader.load(getClass().getResource("HelpView.fxml"));
+				Parent parent1 = (Parent) fxmlLoader.load();
+				Stage stage = new Stage();
+				stage.setScene(new Scene(parent1));
+				stage.show();
+			} catch (IOException e) {
+					e.printStackTrace();
+			}
+	    	
+	    	
+//	    	Platform.exit();
+//			System.exit(0);
+//			System.out.println("Program has closed successfully");
 	    }
 	    
 	    @FXML
@@ -143,15 +154,7 @@ public class GherkinPresenter {
 	    
 	    @FXML
 	    public void OpenHelp(ActionEvent event){
-			try {
-FXMLLoader fxmlLoader = FXMLLoader.load(getClass().getResource("HelpView.fxml"));
-Parent parent1 = (Parent) fxmlLoader.load();
-Stage stage = new Stage();
-stage.setScene(new Scene(parent1));
-stage.show();
-			} catch (IOException e) {
-					e.printStackTrace();
-			}
+
 
 	    }
 	    
