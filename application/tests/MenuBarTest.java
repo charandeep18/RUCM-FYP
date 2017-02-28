@@ -11,6 +11,8 @@ public class MenuBarTest extends AbstractTest {
 
 	final String MENU_BAR ="#MenuBar"; 
 	final String MENU_FILE ="#menuFile";
+	final String
+	
 	final String SAVE_CONTENTS = "#saveConents";
 	final String LOAD_CONTENTS = "#loadFile";
 	final String EXIT_APPLICATION = "#exit";
@@ -22,13 +24,13 @@ public class MenuBarTest extends AbstractTest {
 //	}
 	
 	@Test
-	public void loadFileTest(){
+	public void loadFileMenuTest(){
 		clickOn("#menuFile");
 		clickOn("#loadFile");
 	}
 	
 	@Test
-	public void saveFileTest(){
+	public void saveFileMenuTest(){
 		clickOn("#menuFile");
 		clickOn("#saveContents");
 	}

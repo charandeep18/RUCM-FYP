@@ -25,19 +25,19 @@
                   <MenuItem fx:id="exit" mnemonicParsing="false" onAction="#ExitApplication" text="Close Program" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="View">
+          <Menu fx:id="menuView" mnemonicParsing="false" text="View">
             <items>
                   <MenuItem mnemonicParsing="false" text="Gherkin/RUCM" />
               <MenuItem mnemonicParsing="false" text="Selenium" />
             </items>
           </Menu>
-            <Menu mnemonicParsing="false" text="Run Options">
+            <Menu fx:id="menuRunOptions" mnemonicParsing="false" text="Run Options">
                <items>
                   <MenuItem mnemonicParsing="false" text="Open Chrome" />
                   <MenuItem mnemonicParsing="false" text="Open FireFox" />
                </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Help">
+            <Menu fx:id="menuHelp" mnemonicParsing="false" text="Help">
                <items>
                   <MenuItem mnemonicParsing="false" text="Guide" />
                   <MenuItem mnemonicParsing="false" text="About " />
