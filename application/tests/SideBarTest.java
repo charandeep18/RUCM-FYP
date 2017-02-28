@@ -45,22 +45,9 @@ public class SideBarTest extends AbstractTest {
 	}
 	
 	@Test
-	public void checkLabelExists(){
-//		String LABEL = "Created by Charandeep Rai";
-//		verifyThat(LABEL, (Label label) -> {
-//			String text = label.getText();
-//			return text.contains(LABEL);
-//		});
-		
-	verifyThat(LABEL, NodeMatchers.isNotNull());
-	verifyThat(LABEL, NodeMatchers.hasText("Createsd by Charandeep Rai"));
+	public void checkLabelExists(){	
+		verifyThat(LABEL, NodeMatchers.isNotNull());
+		verifyThat(LABEL, NodeMatchers.hasText("Created by Charandeep Rai"));
 	}
-	
-	
-//	@Test
-//	public void clickOnCloseButton(){
-//		clickOn("#closeButton");
-//	}
-	
 	
 }
