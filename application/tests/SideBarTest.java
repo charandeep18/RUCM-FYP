@@ -20,7 +20,6 @@ public class SideBarTest extends AbstractTest {
 	
 	@Test
 	public void clickOnLoadButton(){
-		
 		verifyThat(LOAD_BUTTON, NodeMatchers.isNotNull());
 		verifyThat(LOAD_BUTTON, NodeMatchers.hasText("Load Test Case"));
 		clickOn("#loadButton");
@@ -28,23 +27,29 @@ public class SideBarTest extends AbstractTest {
 	
 	@Test
 	public void clickOnSaveButton(){
+		verifyThat(SAVE_BUTTON, NodeMatchers.isNotNull());
+		verifyThat(SAVE_BUTTON, NodeMatchers.hasText("Save Test Case"));
 		clickOn("#saveButton");
 	}
 	
 	@Test
 	public void clickOnValidateButton(){
+		verifyThat(VALIDATE_BUTTON, NodeMatchers.isNotNull());
+		verifyThat(VALIDATE_BUTTON, NodeMatchers.hasText("Validate Script"));
 		clickOn("#validateButton");
 	}
 	
 	@Test
 	public void clickOnStepDefsButton(){
+		verifyThat(STEPDEFS_BUTTON, NodeMatchers.isNotNull());
+		verifyThat(STEPDEFS_BUTTON, NodeMatchers.hasText("Create Step Defs"));
 		clickOn("#createStepDefsButton");
 	}
 	
 	@Test
 	public void clickOnSeleniumButton(){
-		
-		
+		verifyThat(SELENIUM_BUTTON, NodeMatchers.isNotNull());
+		verifyThat(SELENIUM_BUTTON, NodeMatchers.hasText("Selenium View"));
 		clickOn("#seleniumViewButton");
 
 	}
@@ -53,6 +58,13 @@ public class SideBarTest extends AbstractTest {
 	public void checkLabelExists(){	
 		verifyThat(LABEL, NodeMatchers.isNotNull());
 		verifyThat(LABEL, NodeMatchers.hasText("Created by Charandeep Rai"));
+	}
+	
+	@Test
+	public void clickOnCloseButton(){
+		verifyThat(CLOSE_BUTTON, NodeMatchers.isNotNull());
+		verifyThat(CLOSE_BUTTON, NodeMatchers.hasText("Exit Application"));
+		clickOn("#closeButton");
 	}
 	
 }
