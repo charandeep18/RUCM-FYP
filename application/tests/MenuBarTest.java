@@ -15,10 +15,22 @@ public class MenuBarTest extends AbstractTest {
 	final String LOAD_CONTENTS = "#loadFile";
 	final String EXIT_APPLICATION = "#exit";
 	
+//	@Test
+//	public void closeApplicationTest(){
+//		clickOn("#menuFile");
+//		clickOn("#exit");
+//	}
+	
 	@Test
-	public void closeApplication(){
+	public void loadFileTest(){
 		clickOn("#menuFile");
-		clickOn("#exit");
+		clickOn("#loadFile");
+	}
+	
+	@Test
+	public void saveFileTest(){
+		clickOn("#menuFile");
+		clickOn("#saveContents");
 	}
 
 }

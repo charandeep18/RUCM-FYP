@@ -20,6 +20,9 @@ public class SideBarTest extends AbstractTest {
 	
 	@Test
 	public void clickOnLoadButton(){
+		
+		verifyThat(LOAD_BUTTON, NodeMatchers.isNotNull());
+		verifyThat(LOAD_BUTTON, NodeMatchers.hasText("Load Test Case"));
 		clickOn("#loadButton");
 	}
 	
@@ -40,6 +43,8 @@ public class SideBarTest extends AbstractTest {
 	
 	@Test
 	public void clickOnSeleniumButton(){
+		
+		
 		clickOn("#seleniumViewButton");
 
 	}
