@@ -2,10 +2,14 @@ package presenter;
 
 import java.awt.Desktop;
 import java.io.File;
+import java.io.IOException;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
@@ -15,6 +19,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+
 import org.fxmisc.richtext.RichTextChange;
 import org.fxmisc.richtext.StyleClassedTextArea;
 
@@ -133,6 +139,18 @@ public class GherkinPresenter {
 	    	  
 	    //model.checkSyntax check = new checkSyntax().checkSyntaxMethod();
 	    
+	    }
+	    
+	    @FXML
+	    public void OpenHelp(ActionEvent event){
+			try {
+				Parent root = FXMLLoader.load(getClass().getResource("HelpView.fxml"));
+			
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+					e.printStackTrace();
+			}
+
 	    }
 	    
 	}
