@@ -11,8 +11,9 @@ public class MenuBarTest extends AbstractTest {
 
 	final String MENU_BAR ="#MenuBar"; 
 	final String MENU_FILE ="#menuFile";
-	final String
-	
+	final String MENU_VIEW ="#menuView";
+	final String MENU_RUNOPTIONS="#menuRunOptions";
+	final String MENU_HELP="#menuHelp";
 	final String SAVE_CONTENTS = "#saveConents";
 	final String LOAD_CONTENTS = "#loadFile";
 	final String EXIT_APPLICATION = "#exit";
@@ -22,6 +23,11 @@ public class MenuBarTest extends AbstractTest {
 //		clickOn("#menuFile");
 //		clickOn("#exit");
 //	}
+	
+	@Test
+	public void fileMenuTest(){
+		clickOn("#menuFile");
+	}
 	
 	@Test
 	public void loadFileMenuTest(){
@@ -34,5 +40,7 @@ public class MenuBarTest extends AbstractTest {
 		clickOn("#menuFile");
 		clickOn("#saveContents");
 	}
+	
+
 
 }
