@@ -18,7 +18,7 @@
    <children>
       <MenuBar fx:id="MenuBar" prefHeight="32.0" prefWidth="700.0">
         <menus>
-          <Menu mnemonicParsing="false" text="File">
+          <Menu fx:id="menuFile" mnemonicParsing="false" text="File">
             <items>
               <MenuItem fx:id="saveContents" mnemonicParsing="false" onAction="#SaveFile" text="Save Text File" />
                   <MenuItem fx:id="loadFile" mnemonicParsing="false" onAction="#OpenFile" text="Load Text File" />
