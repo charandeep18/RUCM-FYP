@@ -17,6 +17,9 @@ public class MenuBarTest extends AbstractTest {
 	final String SAVE_CONTENTS = "#saveContents";
 	final String LOAD_CONTENTS = "#loadFile";
 	final String EXIT_APPLICATION = "#exit";
+	final String MENU_HELPITEM="#helpMenuItem";
+	final String HELP_TABPANE="#helpTabPane";
+	
 	
 //	@Test
 //	public void closeApplicationTest(){
@@ -49,6 +52,17 @@ public class MenuBarTest extends AbstractTest {
 		verifyThat(SAVE_CONTENTS, NodeMatchers.isNotNull());
 		//verifyThat(SAVE_CONTENTS, NodeMatchers.hasText("Save Text File"));
 		clickOn("#saveContents");
+	}
+	
+	@Test
+	public void helpFileMenuTest(){
+		verifyThat(MENU_HELP, NodeMatchers.isNotNull());
+		verifyThat(MENU_HELP, NodeMatchers.hasText("Help"));
+		clickOn("#menuHelp");
+		verifyThat(MENU_HELPITEM, NodeMatchers.isNotNull());
+		clickOn("#helpMenuItem");
+		sleep(1000);
+		verifyThat(HELP_TABPANE, NodeMatchers.isNotNull());
 	}
 	
 
