@@ -29,12 +29,12 @@ public class HelpPresenter {
     @FXML
     private AnchorPane helpTextArea;
     
-//    @FXML
-//    public void ExitApplication(ActionEvent event) {
-//		Platform.exit();
-//		System.exit(0);
-//		System.out.println("Program has closed successfully");
-//    }
-//    
+    @FXML
+    public void ExitApplication(ActionEvent event) {
+		Platform.exit();
+		System.exit(0);
+		System.out.println("Program has closed successfully");
+    }
+    
 	
 }

@@ -152,7 +152,7 @@ public class GherkinPresenter {
 				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/HelpView.fxml"));
 				Parent parent1 = (Parent) fxmlLoader.load();
 				Stage stage = new Stage();
-				stage.setTitle("Help");
+				stage.setTitle("Help Guide");
 				stage.initModality(Modality.APPLICATION_MODAL);
 				stage.initStyle(StageStyle.DECORATED);
 				stage.setScene(new Scene(parent1));
