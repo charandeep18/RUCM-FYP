@@ -53,6 +53,8 @@ public class HelpTabTest extends AbstractTest {
 		verifyThat(HELP_ABOUTTAB, NodeMatchers.isNotNull());
 		clickOn("#aboutTab");
 		verifyThat(HELP_ABOUTTEXTAREA, NodeMatchers.isNotNull());
+		
+		
 	}
 	
 	
