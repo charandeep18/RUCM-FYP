@@ -20,6 +20,7 @@ public class saveFile {
     		FileWriter fileWriter = new FileWriter(file);
     		fileWriter.write(content);
     		fileWriter.close();
+    		
     	} catch (IOException ex) {
     		Logger.getLogger(
     				saveFile.class.getName()).log(

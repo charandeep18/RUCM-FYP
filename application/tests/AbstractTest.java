@@ -12,12 +12,14 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
 import view.MainGUI;
+//import start.Start;
 
 public abstract class AbstractTest extends ApplicationTest  {
 
 	@Before
 	public void setUpClass() throws Exception {
 		ApplicationTest.launch(MainGUI.class);
+		//ApplicationTest.launch(Start.class);
 	}
 	
 	@Override

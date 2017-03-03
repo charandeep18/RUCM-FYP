@@ -22,7 +22,8 @@ public class openFile {
     		bufferedReader = new BufferedReader(new FileReader(file));
     		String inputtext;
     		while((inputtext = bufferedReader.readLine()) !=null){
-    			stringBuffer.append(inputtext);
+    			stringBuffer.append(inputtext + "\n");
+
     		}
     	} catch (FileNotFoundException fileexception) {
     		Logger.getLogger(

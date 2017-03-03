@@ -103,10 +103,10 @@ public class GherkinPresenter {
 	    @FXML
 	    public void OpenFile(ActionEvent event) {
 	    	// Setting the filter to show only text files
-	    	FileChooser.ExtensionFilter filter = new FileChooser.ExtensionFilter("TXT Files (*.txt)","*.txt");
+	    //	FileChooser.ExtensionFilter filter = new FileChooser.ExtensionFilter("TXT Files (*.txt)","*.txt");
 	    	
 	    	FileChooser filechooser = new FileChooser();
-	    	filechooser.getExtensionFilters().add(filter);
+	    	//filechooser.getExtensionFilters().add(filter);
 	    	filechooser.setTitle("Open File");
 	   	
 	    	File file = filechooser.showOpenDialog(MainStage.getScene().getWindow());
