@@ -3,6 +3,10 @@ package presenter;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -25,6 +29,8 @@ import javafx.stage.StageStyle;
 
 import org.fxmisc.richtext.RichTextChange;
 import org.fxmisc.richtext.StyleClassedTextArea;
+import org.fxmisc.richtext.StyleSpans;
+import org.fxmisc.richtext.StyleSpansBuilder;
 
 import model.openFile;
 import model.saveFile;
@@ -140,10 +146,7 @@ public class GherkinPresenter {
 	    
 	    @FXML
 	    public void checkSyntax(ActionEvent event){
-	    //model.checkSyntax check = new model.checkSyntax();
-	    	  
-	    //model.checkSyntax check = new checkSyntax().checkSyntaxMethod();
-	    
+
 	    }
 	    
 	    @FXML

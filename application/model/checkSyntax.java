@@ -17,6 +17,7 @@ import org.fxmisc.richtext.StyleSpansBuilder;
 
 public class checkSyntax {
 
+	@SuppressWarnings("unused")
 	public static void checkSyntaxMethod(){
 		
 		//private static 
@@ -30,26 +31,24 @@ public class checkSyntax {
 	            "(?<KEYWORD>" + KEYWORD_PATTERN + ")"
 	    );}
 	    
-	    private static StyleSpans<Collection<String>> computeHighlighting(String text, Pattern PATTERN) {
+		@SuppressWarnings("unused")
+		private static StyleSpans<Collection<String>> computeHighlighting(String text, Pattern PATTERN) {
 	        Matcher matcher = PATTERN.matcher(text);
-	        int lastKwEnd = 0;
+	        int keywordend = 0;
 	        
-	        StyleSpansBuilder<Collection<String>> spansBuilder
-	                = new StyleSpansBuilder<>();
+	        StyleSpansBuilder<Collection<String>> spanbuilder = new StyleSpansBuilder<>();
 	        
 	        while(matcher.find()) {
-	            String styleClass =
-	                    matcher.group("KEYWORD") != null ? "keyword" :
-	                    null; 
-	            		
+	            String styleClass = matcher.group("KEYWORD") != null ? "keyword" : null; 
+	            
 	            assert styleClass != null;
-	            spansBuilder.add(Collections.emptyList(), matcher.start() - lastKwEnd);
-	            spansBuilder.add(Collections.singleton(styleClass), matcher.end() - matcher.start());
-	            lastKwEnd = matcher.end();
+	            spanbuilder.add(Collections.emptyList(), matcher.start() - keywordend);
+	            spanbuilder.add(Collections.singleton(styleClass), matcher.end() - matcher.start());
+	            keywordend = matcher.end();
 	        }
 	        
-	        spansBuilder.add(Collections.emptyList(), text.length() - lastKwEnd);
-	        return spansBuilder.create();
+	        spanbuilder.add(Collections.emptyList(), text.length() - keywordend);
+	        return spanbuilder.create();
 		
 	}
 
