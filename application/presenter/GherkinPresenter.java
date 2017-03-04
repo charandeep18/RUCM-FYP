@@ -27,6 +27,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import org.fxmisc.richtext.CodeArea;
 import org.fxmisc.richtext.RichTextChange;
 import org.fxmisc.richtext.StyleClassedTextArea;
 import org.fxmisc.richtext.StyleSpans;
@@ -101,7 +102,7 @@ public class GherkinPresenter {
 //FXML Items for GUI-Right 		
 
 	    @FXML
-	    public StyleClassedTextArea readTextArea;
+	    public CodeArea readTextArea;
 	    
 	    @FXML
 	    public static TextArea validationArea;
