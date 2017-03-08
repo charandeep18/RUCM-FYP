@@ -38,7 +38,7 @@ public class LeftTextArea extends Application {
         });
 		
 		Scene scene = new Scene(leftCode, 500, 400);
-		scene.getStylesheets().add(JavaFXSplitPane.class.getResource("GherkinView.css").toExternalForm());
+		scene.getStylesheets().add(LeftTextArea.class.getResource("GherkinView.css").toExternalForm());
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
@@ -49,12 +49,12 @@ public class LeftTextArea extends Application {
 	
     private static StyleSpans<Collection<String>> computeHighlighting(String text) {
         Matcher patternmatcher = PATTERN.matcher(text);
+        StyleSpansBuilder<Collection<String>> spansBuilder = new StyleSpansBuilder<>();
+        
         int keywordend = 0;
-        StyleSpansBuilder<Collection<String>> spansBuilder
-                = new StyleSpansBuilder<>();
+        
         while(patternmatcher.find()) {
-            String styleClass =
-            		patternmatcher.group("KEYWORD") != null ? "keyword" : null;
+            String styleClass = patternmatcher.group("KEYWORD") != null ? "keyword" : null;
             assert styleClass != null;
             spansBuilder.add(Collections.emptyList(), patternmatcher.start() - keywordend);
             spansBuilder.add(Collections.singleton(styleClass), patternmatcher.end() - patternmatcher.start());

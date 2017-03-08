@@ -105,7 +105,7 @@ public class GherkinPresenter implements Initializable {
 	    @FXML
 	    private Label nameLabel;
 
-//FXML Items for GUI-Right 		
+//FXML Items for GUI-Right - Legacy Code 		
 
 	   // @FXML
 	    public CodeArea readTextArea;
@@ -113,9 +113,13 @@ public class GherkinPresenter implements Initializable {
 	    //@FXML
 	    public static TextArea validationArea;
 	   
-
+//FXML Items for GUI-Right - Current Code;
 	    
-
+	    //@FXML
+	    private AnchorPane codeArea;
+	    
+	    //@FXML
+	    private AnchorPane consoleArea;
 	    
 	    @FXML
 	    public void OpenFile(ActionEvent event) {
@@ -186,8 +190,7 @@ public class GherkinPresenter implements Initializable {
 
 		@Override
 		public void initialize(URL location, ResourceBundle resources) {
-			// TODO Auto-generated method stub
-			
+			System.out.println("Program has loaded successfully");
 		}
 	    
 	}
