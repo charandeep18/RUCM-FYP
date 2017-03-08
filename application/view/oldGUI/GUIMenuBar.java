@@ -22,7 +22,7 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.stage.FileChooser;
 
-public class GUIMenuBar extends Application{
+public class GUIMenuBar extends MenuBar{
 	
 	//Main Pane and Menu Stage
 	static HBox mainmenuPane = new HBox();
@@ -58,11 +58,10 @@ public class GUIMenuBar extends Application{
 	private MenuItem about = new MenuItem("About");
 	private MenuItem guide = new MenuItem("Guide");
 	
-	public static void main(String[] args) {
-		launch(args);
-	}	
+//	public static void main(String[] args) {
+//		launch(args);
+//	}	
 	
-	@Override
 	public void start(Stage menuStage) throws Exception {
 	fileMenu.getItems().addAll(open,save,close);
 	close.setOnAction(e -> SharedMethods.closeProgram());
@@ -122,6 +121,8 @@ public class GUIMenuBar extends Application{
     						Level.SEVERE, null, ex);
     	}
     }
+    
+
     
 //    private void closeProgram(){
 //		Platform.exit();

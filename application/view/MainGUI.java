@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import presenter.GherkinPresenter;
 
 public class MainGUI extends Application {
 	
@@ -18,7 +19,8 @@ public class MainGUI extends Application {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("GherkinView.fxml"));
 				mainStage.setTitle("RUCM Application");
-				mainStage.setScene(new Scene(root, 694, 623));
+				//root.getStylesheets().add(GherkinPresenter.class.getResource("GherkinView.css").toExternalForm());
+				mainStage.setScene(new Scene(root, 694, 623));	
 				mainStage.setResizable(false);
 				mainStage.show();
 		

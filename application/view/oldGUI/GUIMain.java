@@ -10,6 +10,8 @@ import javafx.stage.Stage;
 
 public class GUIMain extends Application {
 
+	private GUIMenuBar menuBar = new GUIMenuBar();
+	
 	
 	
 	public static void main(String[] args) {
@@ -21,7 +23,7 @@ public class GUIMain extends Application {
 		primaryStage.setTitle("RUCM - Use Case Creator");
 		
 		BorderPane borderPane = new BorderPane();
-		borderPane.setTop(GUIMenuBar.mainmenuPane);
+		//borderPane.setTop(GUIMenuBar.menuStage);
 		borderPane.setLeft(GUILeft.leftgrid);
 		
 		Scene scene = new Scene(borderPane, 500, 400);
@@ -29,6 +31,10 @@ public class GUIMain extends Application {
 		primaryStage.show();
 		primaryStage.setOnCloseRequest(e -> closeProgram());
 }
+	
+	public GUIMenuBar getMenuBar() {
+		return menuBar;
+	}
 	
     private void closeProgram(){
 		Platform.exit();

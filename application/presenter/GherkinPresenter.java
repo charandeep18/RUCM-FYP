@@ -7,6 +7,8 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.Collection;
+
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -28,6 +30,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import org.fxmisc.richtext.CodeArea;
+import org.fxmisc.richtext.LineNumberFactory;
 import org.fxmisc.richtext.RichTextChange;
 import org.fxmisc.richtext.StyleClassedTextArea;
 import org.fxmisc.richtext.StyleSpans;
@@ -35,7 +38,7 @@ import org.fxmisc.richtext.StyleSpansBuilder;
 
 import model.openFile;
 import model.saveFile;
-import model.checkSyntax;
+//import model.checkSyntax;
 
 public class GherkinPresenter {
 	    
@@ -147,10 +150,16 @@ public class GherkinPresenter {
 	    
 	    @FXML
 	    public void checkSyntax(ActionEvent event){
-
+			readTextArea.setParagraphGraphicFactory(LineNumberFactory.get(readTextArea));
+			readTextArea.richChanges().filter(ch -> !ch.getInserted().equals(ch.getRemoved()))
+			.subscribe(change -> {
+	       //     readTextArea.setStyleSpans(0, checkSyntax.computeHighlighting(readTextArea.getText()));
+			});
 	    }
 	    
-	    @FXML
+
+
+		@FXML
 	    public void OpenHelp(ActionEvent event){
 			try {
 				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/HelpView.fxml"));
