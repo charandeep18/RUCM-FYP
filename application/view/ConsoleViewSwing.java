@@ -1,10 +1,13 @@
 package view;
 
+import javax.swing.SwingUtilities;
+
 import javafx.application.Application;
 import javafx.embed.swing.SwingNode;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import sampleTestCases.Run;
 
 public class ConsoleViewSwing extends Application {
 
@@ -24,10 +27,12 @@ public class ConsoleViewSwing extends Application {
 	}
 	
 	private void swingContent(final SwingNode swingNode) {
-		
-		private void updateText(final String text) {
-			
-		}
+		SwingUtilities.invokeLater(new Runnable() { 
+			public void run() {
+				
+			}
+		});
+
 		
 		
 	}
