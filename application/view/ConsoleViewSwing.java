@@ -1,5 +1,6 @@
 package view;
 
+import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
 
 import javafx.application.Application;
@@ -10,6 +11,8 @@ import javafx.stage.Stage;
 import sampleTestCases.Run;
 
 public class ConsoleViewSwing extends Application {
+	
+
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -27,13 +30,18 @@ public class ConsoleViewSwing extends Application {
 	}
 	
 	private void swingContent(final SwingNode swingNode) {
+		JTextArea textarea = new JTextArea();
+		
+		@Override
+		private void updateTextArea (final String text) {
 		SwingUtilities.invokeLater(new Runnable() { 
 			public void run() {
-				
+				textArea.append(text)
 			}
 		});
 
 		
 		
 	}
+}
 }
