@@ -2,6 +2,7 @@ package view;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.PrintStream;
 
 import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
@@ -25,22 +26,23 @@ JTextArea textarea = new JTextArea();
 		
 	private void Streams() {
 		OutputStream output = new OutputStream () {
-
-			@Override
-			public void write(int w) throws IOException {
-				updateTextArea(String.valueOf((char) w));
-			}
-			
 			@Override
 			public void write(byte[] b, int off, int len) throws IOException{
 				updateTextArea(new String(b, off, len));
 			}
 			
 			@Override
-			public void write(byte[] b) throws IOException {
-				
+			public void write(int w) throws IOException {
+				updateTextArea(String.valueOf((char) w));
 			}
-		}
+			
+			@Override
+			public void write(byte[] b) throws IOException {
+				write(b, 0, b.length);
+			}
+		};
+	System.setOut(new PrintStream(output, true));
+	System.setErr(new PrintStream(output, true));
 	}
 	
 }
