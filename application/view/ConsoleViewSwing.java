@@ -23,7 +23,12 @@ public class ConsoleViewSwing extends Application {
 		
 	}
 	
-	public void swingContent(final SwingNode swingNode) {
+	private void swingContent(final SwingNode swingNode) {
+		
+		private void updateText(final String text) {
+			
+		}
+		
 		
 	}
 }

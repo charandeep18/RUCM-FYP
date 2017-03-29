@@ -8,6 +8,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import presenter.GherkinPresenter;
+import java.awt.*;
+
+
 
 public class MainGUI extends Application {
 	
