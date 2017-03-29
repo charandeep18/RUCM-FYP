@@ -36,12 +36,13 @@ public class ConsoleViewSwing extends Application {
 		private void updateTextArea (final String text) {
 		SwingUtilities.invokeLater(new Runnable() { 
 			public void run() {
-				textArea.append(text)
+				textarea.append(text);
 			}
 		});
-
+		}
 		
-		
-	}
+		private void SystemStreams(){
+			
+		}
 }
 }
