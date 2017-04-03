@@ -45,7 +45,13 @@ public class LeftTextArea extends Application {
 	 private static final String KEYWORD_PATTERNS = "\\b(" + String.join("|", KEYWORDS) + ")\\b";
 	 
 	 //CodeArea - Compiling the pattern using the Java Regex Pattern class:
-	 private static final Pattern PATTERN = Pattern.compile("(?<KEYWORD>" + KEYWORD_PATTERNS + ")");
+	 private static final Pattern PATTERN = Pattern.compile(
+			   "(?<KEYWORD>" + KEYWORD_PATTERNS + ")"
+			 + "|(?,SEMICOLON>" + SEMICOLON + ")"
+			 + "|(?,STRING>" + STRING + ")"
+			 + "|(?,BRACKET>" + BRACKET + ")"
+			 + "|(?,PARENTHESIS" + PARENTHESIS + ")"
+			 );
 	 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -71,7 +77,10 @@ public class LeftTextArea extends Application {
         int keywordend = 0;
         
         while(patternmatcher.find()) {
-            String styleClass = patternmatcher.group("KEYWORD") != null ? "keyword" : null;
+            String styleClass = 
+            patternmatcher.group("KEYWORD") != null ? "keyword" : null;
+            
+            
             assert styleClass != null;
             spansBuilder.add(Collections.emptyList(), patternmatcher.start() - keywordend);
             spansBuilder.add(Collections.singleton(styleClass), patternmatcher.end() - patternmatcher.start());
