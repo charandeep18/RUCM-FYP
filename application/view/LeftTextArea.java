@@ -30,6 +30,10 @@ public class LeftTextArea extends Application {
 
 	 private static final String STRING = "\"([^\"\\\\]|\\\\.)*\"";
 	 
+	 private static final String BRACKET =  "\\[|\\]";
+	 
+	 private static final String PARENTHESIS = "\\(|\\)";
+	 
 //	 private static final String[] STRING = new String[] {
 //			 "\"([^\"\\\\]|\\\\.)*\""
 //	 };
@@ -50,8 +54,8 @@ public class LeftTextArea extends Application {
 			   "(?<KEYWORD>" + KEYWORD_PATTERNS + ")"
 			 + "|(?<SEMICOLON>" + SEMICOLON + ")"
 			 + "|(?<STRING>" + STRING + ")"
-	//		 + "|(?<BRACKET>" + BRACKET + ")"
-	//		 + "|(?<PARENTHESIS>" + PARENTHESIS + ")"
+			 + "|(?<BRACKET>" + BRACKET + ")"
+			 + "|(?<PARENTHESIS>" + PARENTHESIS + ")"
 			 );
 	 
 	@Override
@@ -81,9 +85,9 @@ public class LeftTextArea extends Application {
             String styleClass = 
             patternmatcher.group("KEYWORD") != null ? "keyword" :
             patternmatcher.group("SEMICOLON") != null ? "semicolon" : 
-       //     patternmatcher.group("STRING") != null ? "string" : 
-       //     patternmatcher.group("BRACKET")!= null ? "bracket" : 
-       //     patternmatcher.group("PARENTHESIS")!= null ? "parenthesis" :
+            patternmatcher.group("STRING") != null ? "string" : 
+            patternmatcher.group("BRACKET")!= null ? "bracket" : 
+            patternmatcher.group("PARENTHESIS")!= null ? "parenthesis" :
             null;
             assert styleClass != null;
             spansBuilder.add(Collections.emptyList(), patternmatcher.start() - keywordend);
