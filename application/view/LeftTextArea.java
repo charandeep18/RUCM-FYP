@@ -24,33 +24,32 @@ public class LeftTextArea extends Application {
 				"Given", "Then", "And", "But", "Feature", "Scenario", "When", "Background"
 	 };
 	 
-	 private static final String[] SEMICOLON = new String[] {
-			 "\\;"
-	 };
+	 private static final String KEYWORD_PATTERNS = "\\b(" + String.join("|", KEYWORDS) + ")\\b";
 
-	 private static final String[] STRING = new String[] {
-			 "\"([^\"\\\\]|\\\\.)*\""
-	 };
+	 private static final String SEMICOLON = "\\;";
+
+	// private static final String[] STRING = new String[] {
+	//		 "\"([^\"\\\\]|\\\\.)*\""
+	// };
 	 
-	 private static final String[] BRACKET = new String [] {
-			 "\\[|\\]"
-	 };
+	// private static final String[] BRACKET = new String [] {
+	//		 "\\[|\\]"
+	// };
 	 
-	 private static final String[] PARENTHESIS = new String [] {
-			 "\\[|\\]"
-	 };
+	// private static final String[] PARENTHESIS = new String [] {
+//			 "\\[|\\]"
+//	 };
 	 
 	 
 	 //CodeArea - Defining the pattern used for the Keywords using Regex commands:
-	 private static final String KEYWORD_PATTERNS = "\\b(" + String.join("|", KEYWORDS) + ")\\b";
 	 
 	 //CodeArea - Compiling the pattern using the Java Regex Pattern class:
 	 private static final Pattern PATTERN = Pattern.compile(
 			   "(?<KEYWORD>" + KEYWORD_PATTERNS + ")"
 			 + "|(?,SEMICOLON>" + SEMICOLON + ")"
-			 + "|(?,STRING>" + STRING + ")"
-			 + "|(?,BRACKET>" + BRACKET + ")"
-			 + "|(?,PARENTHESIS" + PARENTHESIS + ")"
+	//		 + "|(?,STRING>" + STRING + ")"
+	//		 + "|(?,BRACKET>" + BRACKET + ")"
+	//		 + "|(?,PARENTHESIS" + PARENTHESIS + ")"
 			 );
 	 
 	@Override
@@ -80,9 +79,9 @@ public class LeftTextArea extends Application {
             String styleClass = 
             patternmatcher.group("KEYWORD") != null ? "keyword" :
             patternmatcher.group("SEMICOLON") != null ? "semicolon" : 
-            patternmatcher.group("STRING") != null ? "string" : 
-            patternmatcher.group("BRACKET")!= null ? "bracket" : 
-            patternmatcher.group("PARENTHESIS")!= null ? "parenthesis" :
+       //     patternmatcher.group("STRING") != null ? "string" : 
+       //     patternmatcher.group("BRACKET")!= null ? "bracket" : 
+       //     patternmatcher.group("PARENTHESIS")!= null ? "parenthesis" :
             null;
             assert styleClass != null;
             spansBuilder.add(Collections.emptyList(), patternmatcher.start() - keywordend);
