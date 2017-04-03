@@ -79,9 +79,10 @@ public class LeftTextArea extends Application {
         while(patternmatcher.find()) {
             String styleClass = 
             patternmatcher.group("KEYWORD") != null ? "keyword" :
-            patternmatcher.group("SEMICOLON") != null ? "keyword" : 
-            patternmatcher.group("STRING") != null ? "keyword" : 
-            patternmatcher.group("BRACKET")!= null ? "keyword" : 
+            patternmatcher.group("SEMICOLON") != null ? "semicolon" : 
+            patternmatcher.group("STRING") != null ? "string" : 
+            patternmatcher.group("BRACKET")!= null ? "bracket" : 
+            patternmatcher.group("PARENTHESIS")!= null ? "parenthesis" :
             null;
             assert styleClass != null;
             spansBuilder.add(Collections.emptyList(), patternmatcher.start() - keywordend);
