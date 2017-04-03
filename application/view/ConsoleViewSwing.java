@@ -30,19 +30,6 @@ public class ConsoleViewSwing extends Application {
 	}
 	
 	private void swingContent(final SwingNode swingNode) {
-		JTextArea textarea = new JTextArea();
-		
-		@Override
-		private void updateTextArea (final String text) {
-		SwingUtilities.invokeLater(new Runnable() { 
-			public void run() {
-				textarea.append(text);
-			}
-		});
-		}
-		
-		private void SystemStreams(){
-			
-		}
+		ConsoleSwingMain console = new ConsoleSwingMain();
 }
 }
