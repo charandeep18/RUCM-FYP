@@ -24,6 +24,23 @@ public class LeftTextArea extends Application {
 				"Given", "Then", "And", "But", "Feature", "Scenario", "When", "Background"
 	 };
 	 
+	 private static final String[] SEMICOLON = new String[] {
+			 "\\;"
+	 };
+
+	 private static final String[] STRING = new String[] {
+			 "\"([^\"\\\\]|\\\\.)*\""
+	 };
+	 
+	 private static final String[] BRACKET = new String [] {
+			 "\\[|\\]"
+	 };
+	 
+	 private static final String[] PARENTHESIS = new String [] {
+			 "\\[|\\]"
+	 };
+	 
+	 
 	 //CodeArea - Defining the pattern used for the Keywords using Regex commands:
 	 private static final String KEYWORD_PATTERNS = "\\b(" + String.join("|", KEYWORDS) + ")\\b";
 	 
