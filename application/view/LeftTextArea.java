@@ -28,28 +28,30 @@ public class LeftTextArea extends Application {
 
 	 private static final String SEMICOLON = "\\;";
 
-	// private static final String[] STRING = new String[] {
-	//		 "\"([^\"\\\\]|\\\\.)*\""
-	// };
+	 private static final String STRING = "\"([^\"\\\\]|\\\\.)*\"";
 	 
-	// private static final String[] BRACKET = new String [] {
-	//		 "\\[|\\]"
-	// };
-	 
-	// private static final String[] PARENTHESIS = new String [] {
+//	 private static final String[] STRING = new String[] {
+//			 "\"([^\"\\\\]|\\\\.)*\""
+//	 };
+//	 
+//	 private static final String[] BRACKET = new String [] {
 //			 "\\[|\\]"
 //	 };
 	 
+//	 private static final String[] PARENTHESIS = new String [] {
+//			 "\\(|\\)"
+//	 };
+//	 
 	 
 	 //CodeArea - Defining the pattern used for the Keywords using Regex commands:
 	 
 	 //CodeArea - Compiling the pattern using the Java Regex Pattern class:
 	 private static final Pattern PATTERN = Pattern.compile(
 			   "(?<KEYWORD>" + KEYWORD_PATTERNS + ")"
-			 + "|(?,SEMICOLON>" + SEMICOLON + ")"
-	//		 + "|(?,STRING>" + STRING + ")"
-	//		 + "|(?,BRACKET>" + BRACKET + ")"
-	//		 + "|(?,PARENTHESIS" + PARENTHESIS + ")"
+			 + "|(?<SEMICOLON>" + SEMICOLON + ")"
+			 + "|(?<STRING>" + STRING + ")"
+	//		 + "|(?<BRACKET>" + BRACKET + ")"
+	//		 + "|(?<PARENTHESIS>" + PARENTHESIS + ")"
 			 );
 	 
 	@Override
