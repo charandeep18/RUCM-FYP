@@ -11,12 +11,14 @@ import org.fxmisc.richtext.StyleSpans;
 import org.fxmisc.richtext.StyleSpansBuilder;
 
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
 public class LeftTextArea extends TextArea {
 
+	@FXML
 	private CodeArea leftCode = new CodeArea();
 	
 	//CodeArea -  defining the areas for coloured text:

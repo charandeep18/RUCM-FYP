@@ -120,6 +120,9 @@ public class GherkinPresenter implements Initializable {
 	    //@FXML
 	    private AnchorPane codeArea;
 	    
+	    @FXML
+	    private CodeArea leftcode;
+	    
 	    //@FXML
 	    private AnchorPane consoleArea;
 	    
@@ -172,7 +175,7 @@ public class GherkinPresenter implements Initializable {
 			readTextArea.setParagraphGraphicFactory(LineNumberFactory.get(readTextArea));
 			readTextArea.richChanges().filter(ch -> !ch.getInserted().equals(ch.getRemoved()))
 			.subscribe(change -> {
-	       //     readTextArea.setStyleSpans(0, checkSyntax.computeHighlighting(readTextArea.getText()));
+	        //    readTextArea.setStyleSpans(0, checkSyntax.computeHighlighting(readTextArea.getText()));
 			});
 	    }
 
@@ -199,10 +202,6 @@ public class GherkinPresenter implements Initializable {
 	        System.setErr(ps);
 	        System.out.println("Hello World");
 		}
-
-//		public void initialize() {
-//			ps = new PrintStream(new Console(console));
-//		}
 
 		@Override
 		public void initialize(URL location, ResourceBundle resources) {
