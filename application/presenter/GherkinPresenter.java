@@ -3,6 +3,7 @@ package presenter;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.net.URL;
 import java.util.Collection;
 import java.util.Collections;
@@ -39,6 +40,7 @@ import org.fxmisc.richtext.StyleClassedTextArea;
 import org.fxmisc.richtext.StyleSpans;
 import org.fxmisc.richtext.StyleSpansBuilder;
 
+import model.Console;
 import model.openFile;
 import model.saveFile;
 //import model.checkSyntax;
@@ -122,6 +124,12 @@ public class GherkinPresenter implements Initializable {
 	    private AnchorPane consoleArea;
 	    
 	    @FXML
+	    private TextArea console;
+	    
+// Non FXML Items
+	    private PrintStream ps;
+	    
+	    @FXML
 	    public void OpenFile(ActionEvent event) {
 	    	// Setting the filter to show only text files
 	    //	FileChooser.ExtensionFilter filter = new FileChooser.ExtensionFilter("TXT Files (*.txt)","*.txt");
@@ -167,8 +175,6 @@ public class GherkinPresenter implements Initializable {
 	       //     readTextArea.setStyleSpans(0, checkSyntax.computeHighlighting(readTextArea.getText()));
 			});
 	    }
-	    
-
 
 		@FXML
 	    public void OpenHelp(ActionEvent event){
@@ -187,11 +193,24 @@ public class GherkinPresenter implements Initializable {
 
 	    }
 
+		@FXML
+		public void ActivateConsole(ActionEvent event) {
+	        System.setOut(ps);
+	        System.setErr(ps);
+	        System.out.println("Hello World");
+		}
+
+//		public void initialize() {
+//			ps = new PrintStream(new Console(console));
+//		}
 
 		@Override
 		public void initialize(URL location, ResourceBundle resources) {
-			System.out.println("Program has loaded successfully");
+			ps = new PrintStream(new Console(console));
 		}
+		
+		
+		
 	    
 	}
 	
