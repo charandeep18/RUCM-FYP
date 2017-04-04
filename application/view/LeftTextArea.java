@@ -15,7 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
-public class LeftTextArea extends Application {
+public class LeftTextArea extends TextArea {
 
 	private CodeArea leftCode = new CodeArea();
 	
@@ -33,19 +33,7 @@ public class LeftTextArea extends Application {
 	 private static final String BRACKET =  "\\[|\\]";
 	 
 	 private static final String PARENTHESIS = "\\(|\\)";
-	 
-//	 private static final String[] STRING = new String[] {
-//			 "\"([^\"\\\\]|\\\\.)*\""
-//	 };
-//	 
-//	 private static final String[] BRACKET = new String [] {
-//			 "\\[|\\]"
-//	 };
-	 
-//	 private static final String[] PARENTHESIS = new String [] {
-//			 "\\(|\\)"
-//	 };
-//	 
+	
 	 
 	 //CodeArea - Defining the pattern used for the Keywords using Regex commands:
 	 
@@ -58,11 +46,10 @@ public class LeftTextArea extends Application {
 			 + "|(?<PARENTHESIS>" + PARENTHESIS + ")"
 			 );
 	 
-	@Override
 	public void start(Stage primaryStage) throws Exception {
 		leftCode.setParagraphGraphicFactory(LineNumberFactory.get(leftCode));
         leftCode.richChanges().filter(ch -> !ch.getInserted().equals(ch.getRemoved())).subscribe(change -> {
-            leftCode.setStyleSpans(0, computeHighlighting(leftCode.getText()));
+        leftCode.setStyleSpans(0, computeHighlighting(leftCode.getText()));
         });
 		
 		Scene scene = new Scene(leftCode, 500, 400);
@@ -70,10 +57,10 @@ public class LeftTextArea extends Application {
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
-
-	public static void main(String[] args) {
-		launch(args);
-	}
+//
+//	public static void main(String[] args) {
+//		launch(args);
+//	}
 	
     private static StyleSpans<Collection<String>> computeHighlighting(String text) {
         Matcher patternmatcher = PATTERN.matcher(text);
