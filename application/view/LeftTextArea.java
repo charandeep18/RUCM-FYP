@@ -16,7 +16,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
-public class LeftTextArea extends TextArea {
+public class LeftTextArea extends Application {
 
 	@FXML
 	private CodeArea leftCode = new CodeArea();
@@ -59,10 +59,10 @@ public class LeftTextArea extends TextArea {
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
-//
-//	public static void main(String[] args) {
-//		launch(args);
-//	}
+
+	public static void main(String[] args) {
+		launch(args);
+	}
 	
     private static StyleSpans<Collection<String>> computeHighlighting(String text) {
         Matcher patternmatcher = PATTERN.matcher(text);
