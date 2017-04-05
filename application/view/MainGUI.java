@@ -22,7 +22,7 @@ public class MainGUI extends Application {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("GherkinView.fxml"));
 				mainStage.setTitle("RUCM Application");
-				//root.getStylesheets().add(GherkinPresenter.class.getResource("GherkinView.css").toExternalForm());
+				root.getStylesheets().add(GherkinPresenter.class.getResource("GherkinView.css").toExternalForm());
 				mainStage.setScene(new Scene(root, 694, 623));	
 				mainStage.setResizable(false);
 				mainStage.show();
