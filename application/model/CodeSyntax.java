@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.fxmisc.richtext.CodeArea;
 import org.fxmisc.richtext.LineNumberFactory;
 import org.fxmisc.richtext.StyleSpans;
 import org.fxmisc.richtext.StyleSpansBuilder;
@@ -13,9 +14,9 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import view.LeftTextArea;
 
-public class CodeArea  {
+public class CodeSyntax  {
 	
-private CodeArea leftCode;	
+public static CodeArea leftCode;	
 
 private static final String[] KEYWORDS = new String[] {
 		"Given", "Then", "And", "But", "Feature", "Scenario", "When", "Background"
@@ -34,10 +35,10 @@ private static final Pattern PATTERN = Pattern.compile(
 		 + "|(?<STRING>" + STRING + ")"
 		 + "|(?<BRACKET>" + BRACKET + ")"
 		 + "|(?<PARENTHESIS>" + PARENTHESIS + ")"
-		 );
+);
 
 
-private static StyleSpans<Collection<String>> computeHighlighting(String text) {
+public static StyleSpans<Collection<String>> computeHighlighting(String text) {
     Matcher patternmatcher = PATTERN.matcher(text);
     StyleSpansBuilder<Collection<String>> spansBuilder = new StyleSpansBuilder<>();
     
@@ -60,7 +61,10 @@ private static StyleSpans<Collection<String>> computeHighlighting(String text) {
     return spansBuilder.create();
 }
 
-
+public static CodeArea getCode(){
+	return leftCode;
+	
+}
 
 
 }
