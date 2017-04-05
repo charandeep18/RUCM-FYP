@@ -17,6 +17,7 @@ public class saveFile {
 
 	public static void savetext(String content, File file) {
     	try {
+//    		FileWriter fileWriter = null;
     		FileWriter fileWriter = new FileWriter(file);
     		fileWriter.write(content);
     		fileWriter.close();

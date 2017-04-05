@@ -109,21 +109,22 @@ public class GherkinPresenter implements Initializable {
 
 //FXML Items for GUI-Right - Legacy Code 		
 
-	   // @FXML
-	    public CodeArea readTextArea;
+
+//	    
+
 	    
-	    //@FXML
-	    public static TextArea validationArea;
+
+
 	   
 //FXML Items for GUI-Right - Current Code;
 	    
-	    //@FXML
+	    @FXML
 	    private AnchorPane codeArea;
 	    
-	    @FXML
-	    private CodeArea leftcode;
+        @FXML
+	    public TextArea readTextArea;
 	    
-	    //@FXML
+	    @FXML
 	    private AnchorPane consoleArea;
 	    
 	    @FXML
@@ -143,7 +144,7 @@ public class GherkinPresenter implements Initializable {
 	   	
 	    	File file = filechooser.showOpenDialog(MainStage.getScene().getWindow());
 	    	if(file != null){
-	    	readTextArea.replaceText(openFile.readFile(file));
+	    	readTextArea.setText(openFile.readFile(file));
 	    	}
 	    }
 	    
@@ -166,17 +167,17 @@ public class GherkinPresenter implements Initializable {
 	    
 	    @FXML
 	    public void validateText(ActionEvent event) {
-	    	String text = validationArea.getText();
+	    	String text = readTextArea.getText();
 	    	System.out.print(text);
 	    }
 	    
 	    @FXML
 	    public void checkSyntax(ActionEvent event){
-			readTextArea.setParagraphGraphicFactory(LineNumberFactory.get(readTextArea));
-			readTextArea.richChanges().filter(ch -> !ch.getInserted().equals(ch.getRemoved()))
-			.subscribe(change -> {
-	        //    readTextArea.setStyleSpans(0, checkSyntax.computeHighlighting(readTextArea.getText()));
-			});
+//			readTextArea.setParagraphGraphicFactory(LineNumberFactory.get(readTextArea));
+//			readTextArea.richChanges().filter(ch -> !ch.getInserted().equals(ch.getRemoved()))
+//			.subscribe(change -> {
+//	        //    readTextArea.setStyleSpans(0, checkSyntax.computeHighlighting(readTextArea.getText()));
+	///		});
 	    }
 
 		@FXML
@@ -200,7 +201,11 @@ public class GherkinPresenter implements Initializable {
 		public void ActivateConsole(ActionEvent event) {
 	        System.setOut(ps);
 	        System.setErr(ps);
-	        System.out.println("Hello World");
+	      //  System.out.println("Hello World");
+	        
+	    String [] textarray = readTextArea.getText().split("\\n");  
+	    System.out.println(textarray);    
+	        
 		}
 
 		@Override

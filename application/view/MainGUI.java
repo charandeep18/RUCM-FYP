@@ -28,9 +28,9 @@ private CodeArea leftCode = CodeSyntax.getCode();
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("GherkinView.fxml"));
 		//	leftCode.setParagraphGraphicFactory(LineNumberFactory.get(leftCode));
-	        leftCode.richChanges().filter(ch -> !ch.getInserted().equals(ch.getRemoved())).subscribe(change -> {
-	        leftCode.setStyleSpans(0, CodeSyntax.computeHighlighting(leftCode.getText()));
-	        });	
+	//        leftCode.richChanges().filter(ch -> !ch.getInserted().equals(ch.getRemoved())).subscribe(change -> {
+	  //      leftCode.setStyleSpans(0, CodeSyntax.computeHighlighting(leftCode.getText()));
+	//        });	
 	
 			mainStage.setTitle("RUCM Application");
 				//root.getStylesheets().add(GherkinPresenter.class.getResource("GherkinView.css").toExternalForm());
