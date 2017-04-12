@@ -27,6 +27,7 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
@@ -50,7 +51,7 @@ public class GherkinPresenter implements Initializable {
 // FXML Containers for GherkinView
 	
 		@FXML
-	    private AnchorPane MainStage;
+	    private BorderPane MainStage;
 		
 	    @FXML
 	    private GridPane GridPane;
@@ -106,13 +107,11 @@ public class GherkinPresenter implements Initializable {
 	    
 	    @FXML
 	    private Label nameLabel;
-
-//FXML Items for GUI-Right - Legacy Code 		
-
-
-//	    
-
 	    
+//FXML Items for Main Body of the GUI	
+
+	    @FXML
+	    private TextArea code;
 
 
 	   
@@ -144,7 +143,7 @@ public class GherkinPresenter implements Initializable {
 	   	
 	    	File file = filechooser.showOpenDialog(MainStage.getScene().getWindow());
 	    	if(file != null){
-	    	readTextArea.setText(openFile.readFile(file));
+	    	code.setText(openFile.readFile(file));
 	    	}
 	    }
 	    
@@ -154,7 +153,7 @@ public class GherkinPresenter implements Initializable {
 	    	fileChooser.setTitle("Save File");
 			File file = fileChooser.showSaveDialog(MainStage.getScene().getWindow());
 			if (file != null) {
-				saveFile.savetext(readTextArea.getText(), file);
+				saveFile.savetext(code.getText(), file);
 			}
 	    }
 	    
@@ -203,7 +202,7 @@ public class GherkinPresenter implements Initializable {
 	        System.setErr(ps);
 	      //  System.out.println("Hello World");
 	        
-	    String [] textarray = readTextArea.getText().split("\\n");  
+	    String [] textarray = code.getText().split("\\n");  
 	    System.out.println(textarray);    
 	        
 		}

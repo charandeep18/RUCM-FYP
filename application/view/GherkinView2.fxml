@@ -13,9 +13,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="MainStage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@GherkinView.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presenter.GherkinPresenter">
+<AnchorPane fx:id="MainStage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" stylesheets="@GherkinView.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presenter.GherkinPresenter">
    <children>
-      <MenuBar fx:id="MenuBar">
+      <MenuBar fx:id="MenuBar" prefHeight="31.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
           <Menu fx:id="menuFile" mnemonicParsing="false" text="File">
             <items>
@@ -42,7 +42,7 @@
                </items></Menu>
         </menus>
       </MenuBar>
-      <SplitPane dividerPositions="0.29797979797979796" layoutY="31.0" prefHeight="600.0" prefWidth="700.0">
+      <SplitPane dividerPositions="0.29797979797979796" layoutY="31.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="403.0" prefWidth="174.0">
                <children>
@@ -75,7 +75,7 @@
                      </font>
                   </Label>
                </children></AnchorPane>
-          <AnchorPane fx:id="SplitPaneAnchor" minHeight="0.0" minWidth="0.0" prefHeight="385.0" prefWidth="416.0">
+          <AnchorPane fx:id="SplitPaneAnchor" minHeight="0.0" minWidth="0.0" prefHeight="575.0" prefWidth="299.0">
                <children>
                   <SplitPane dividerPositions="0.51340206185567" layoutX="169.0" layoutY="192.0" prefHeight="598.0" prefWidth="487.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <items>
