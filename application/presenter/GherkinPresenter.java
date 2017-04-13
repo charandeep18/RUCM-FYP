@@ -167,6 +167,7 @@ public class GherkinPresenter implements Initializable {
 	    @FXML
 	    public void validateText(ActionEvent event) {
 	    	String text = readTextArea.getText();
+	    	text.toString();
 	    	System.out.print(text);
 	    }
 	    
