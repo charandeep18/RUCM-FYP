@@ -4,7 +4,6 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import org.fxmisc.richtext.CodeArea?>
 
 <AnchorPane fx:id="helpAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presenter.HelpPresenter">
    <children>
@@ -14,8 +13,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TextArea fx:id="aboutTextArea" prefHeight="361.0" prefWidth="600.0" text="About this software." wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                        <CodeArea layoutX="300.0" layoutY="126.0" />
+                        <TextArea fx:id="aboutTextArea" prefHeight="361.0" prefWidth="600.0" text="This software has been created with the intention to improve and speed up the testing process using Behaviour Driven Developent and Restricted Use-Case Modelling. The basis of this software comes from the use of Gherkin as the BDD driven language and will allow users to generate the basic step definitions which can be used as unit tests for Test Automation. &#10;&#10;Created by Charandeep Rai for Aston University" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                      </children>
                   </AnchorPane>
             </content>
@@ -24,11 +22,20 @@
             <content>
               <AnchorPane fx:id="helpTextArea" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TextArea editable="false" prefHeight="361.0" prefWidth="600.0" text="Help for this software" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <TextArea editable="false" layoutX="10.0" layoutY="10.0" prefHeight="361.0" prefWidth="600.0" text="In order to use this piece of software, firstly load in or write a Cucumber feature file into the textarea on the left hand-side of the page. The format and keywords that can be used are listed on the Cucumber tab.&#10;&#10;Once the desired gherkin script has been written, click on the generate step definition button to generate the Java JUnit step defitinitions that can be used as a framework for testiing. " wrapText="true" />
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
+            <Tab fx:id="helpTab1" text="Cucumber">
+               <content>
+                  <AnchorPane fx:id="helpTextArea1" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextArea editable="false" layoutY="44.0" prefHeight="371.0" prefWidth="600.0" text="Cucumber is a BDD testing framework that makes use of Gherkin for it's scripts. It relies on the use of certain keywords for each line that isn't blank:&#10;&#10;Scenaro&#10;Feature&#10;Given, When, Then, But, And&#10;Background&#10;Scenario Outline&#10;Examples&#10;&#10;Some extra keywords include:&#10;&#10;| Data Tables&#10;@ Tags&#10;# Comments&#10;&quot;&quot; Strings&#10;&#10;Sample 1: A simple Gherkin script:&#10;&#10;Scenario: Checking validation of Reference Number&#10;Given user navigates to website&#10;When the user enters the Reference Number&#10;Then it should eb validated&#10;&#10;Sample 2: Gherkin script making use of  data tables:&#10;&#10;Scenario Outline: Marking an assignement&#10;Given the assignment has the following &lt;marks&gt;&#10;When we calculate the final &lt;grade&gt;&#10;Then the percentage should be &lt;percentage&gt;&#10;  &#10;Example: &#10;  &#10;      | marks | grade | percentage | &#10;      | 10       | E        | 50%            | &#10;      | 20       | D       | 60%            | &#10;      | 30       | C       | 70%            | &#10;      | 40       | B       | 80%            | &#10;      | 50       | A       | 90%            | &#10;      | 60       | A*      | 100%          |  &#10;  &#10;&#10;" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
         </tabs>
       </TabPane>
    </children>
