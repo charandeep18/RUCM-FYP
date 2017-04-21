@@ -81,6 +81,9 @@ public class MainPresenter {
     private GridPane GridPane;
 
     @FXML
+    private Button newButton;
+    
+    @FXML
     private Button saveButton;
 
     @FXML
@@ -101,8 +104,7 @@ public class MainPresenter {
     @FXML
     private Label nameLabel;
 
-    @FXML
-    private TextArea code;
+    @FXML CodeArea code;
 
     @FXML
     private TextArea console;
@@ -111,7 +113,7 @@ public class MainPresenter {
     private PrintStream ps;
 
     @FXML
-    void ActivateConsole(ActionEvent event) {
+    public void ActivateConsole(ActionEvent event) {
         System.setOut(ps);
         System.setErr(ps);
       //  System.out.println("Hello World");
@@ -121,14 +123,30 @@ public class MainPresenter {
     }
 
     @FXML
-    void ExitApplication(ActionEvent event) {
+    public void ExitApplication(ActionEvent event) {
     	Platform.exit();
 		System.exit(0);
 		System.out.println("Program has closed successfully");
     }
 
     @FXML
-    void OpenFile(ActionEvent event) {
+    public void OpenCloseAlert(ActionEvent event) {
+		try {
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/CloseAlertBox.fxml"));
+			Parent parent1 = (Parent) fxmlLoader.load();
+			Stage stage = new Stage();
+			stage.setTitle("Are you sure you want to exit?");
+			stage.initModality(Modality.APPLICATION_MODAL);
+			stage.initStyle(StageStyle.DECORATED);
+			stage.setScene(new Scene(parent1));
+			stage.show();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    }
+
+    @FXML
+    public void OpenFile(ActionEvent event) {
     	// Setting the filter to show only text files
     //	FileChooser.ExtensionFilter filter = new FileChooser.ExtensionFilter("TXT Files (*.txt)","*.txt");
     	
@@ -138,11 +156,11 @@ public class MainPresenter {
    	
     	File file = filechooser.showOpenDialog(MainStage.getScene().getWindow());
     	if(file != null){
-    	code.setText(openFile.readFile(file));
+    	code.replaceText(openFile.readFile(file));
     }
     }
     @FXML
-    void OpenHelp(ActionEvent event) {
+    public void OpenHelp(ActionEvent event) {
 		try {
 			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/HelpView.fxml"));
 			Parent parent1 = (Parent) fxmlLoader.load();
@@ -159,7 +177,7 @@ public class MainPresenter {
     }
 
     @FXML
-    void SaveFile(ActionEvent event) {
+    public void SaveFile(ActionEvent event) {
     	FileChooser fileChooser = new FileChooser();
     	fileChooser.setTitle("Save File");
 		File file = fileChooser.showSaveDialog(MainStage.getScene().getWindow());
@@ -167,16 +185,18 @@ public class MainPresenter {
 			saveFile.savetext(code.getText(), file);
 		}
     }
-
+    
     @FXML
-    void validateText(ActionEvent event) {
-    	String text = code.getText();
-    	text.toString();
-    	System.out.print(text);
+    public void newFile(){
+    	code.replaceText("");
     }
 
 	public void initialize(URL location, ResourceBundle resources) {
 		ps = new PrintStream(new Console(console));
+	}
+
+	public CodeArea getText() {
+		return code;
 	}
 	
 }

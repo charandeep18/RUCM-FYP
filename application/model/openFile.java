@@ -27,16 +27,16 @@ public class openFile {
     		}
     	} catch (FileNotFoundException fileexception) {
     		Logger.getLogger(
-    				presenter.GherkinPresenter.class.getName()).log(Level.SEVERE, null, fileexception);
+    				presenter.MainPresenter.class.getName()).log(Level.SEVERE, null, fileexception);
     	} catch (IOException inputexception) {
     		Logger.getLogger(
-    				presenter.GherkinPresenter.class.getName()).log(Level.SEVERE, null, inputexception);
+    				presenter.MainPresenter.class.getName()).log(Level.SEVERE, null, inputexception);
     	} finally {
     		try {
     			bufferedReader.close();
     		} catch (IOException inputexception) {
         		Logger.getLogger(
-        			presenter.GherkinPresenter.class.getName()).log(Level.SEVERE, null, inputexception);
+        			presenter.MainPresenter.class.getName()).log(Level.SEVERE, null, inputexception);
     		}
     	}    	
     	return stringBuffer.toString();

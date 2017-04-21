@@ -11,13 +11,12 @@ import java.util.logging.Logger;
 
 import javafx.collections.ObservableList;
 
-import presenter.GherkinPresenter;
+import presenter.MainPresenter;
 
 public class saveFile {
 
 	public static void savetext(String content, File file) {
     	try {
-//    		FileWriter fileWriter = null;
     		FileWriter fileWriter = new FileWriter(file);
     		fileWriter.write(content);
     		fileWriter.close();
@@ -29,25 +28,6 @@ public class saveFile {
     	}
 		
 	}
-	
-	
-//ObservableList<CharSequence> paragraph = GherkinPresenter.readTextArea.getParagraphs();
-//Iterator<CharSequence> iterator = paragraph.iterator();
-//
-//try {
-//	BufferedWriter bufferedwriter = new BufferedWriter(new FileWriter(file));
-//	while(iterator.hasNext())
-//	{
-//		CharSequence charactersequence = iterator.next();
-//		bufferedwriter.append(charactersequence);
-//		bufferedwriter.newLine();
-//	}
-//	bufferedwriter.flush();
-//	bufferedwriter.close();
-//} catch (IOException inputexception) {
-//	Logger.getLogger(
-//			presenter.GherkinPresenter.class.getName()).log(Level.SEVERE, null, inputexception);
-//}
 
 }
 
