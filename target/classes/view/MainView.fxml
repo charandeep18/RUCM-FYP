@@ -78,7 +78,7 @@
    <center>
       <SplitPane dividerPositions="0.5" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <items>
-            <TextArea fx:id="code" prefHeight="693.0" prefWidth="512.0" wrapText="true" />
+            <TextArea fx:id="code" prefHeight="693.0" prefWidth="512.0" promptText="Enter Text Here" text="Enter the Gherkin script in this text area" wrapText="true" />
             <TextArea fx:id="console" editable="false" prefHeight="693.0" prefWidth="512.0" />
          </items>
       </SplitPane>
