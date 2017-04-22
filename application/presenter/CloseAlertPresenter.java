@@ -13,8 +13,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.SplitPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import model.saveFile;
+ 
 
 public class CloseAlertPresenter {
 
@@ -32,7 +35,13 @@ public class CloseAlertPresenter {
     
     @FXML
     private SplitPane AlertStage;
-
+    
+    private Stage dialogStage;
+    
+    public void setDialogStage(Stage dialogStage){
+    	this.dialogStage = dialogStage;
+    }
+    
     @FXML
     public void ExitApplication(ActionEvent event) {
     	Platform.exit();
@@ -44,15 +53,15 @@ public class CloseAlertPresenter {
     public void SaveFile(ActionEvent event){
     	FileChooser fileChooser = new FileChooser();
     	fileChooser.setTitle("Save File");
-		File file = fileChooser.showSaveDialog(AlertStage.getScene().getWindow());
+		File file = fileChooser.showSaveDialog(dialogStage.getScene().getWindow());
 		if (file != null) {
 	//		saveFile.savetext(((code.getText(), file);
 		}
     }
     
     @FXML
-    public void CloseAlert(ActionEvent event) throws IOException{
-    	((Closeable) AlertStage).close();
+    public void CloseAlert(ActionEvent event){
+    	dialogStage.close();
     }
     
 	

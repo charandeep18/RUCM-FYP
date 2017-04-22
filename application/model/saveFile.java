@@ -17,7 +17,7 @@ public class saveFile {
 
 	public static void savetext(String content, File file) {
     	try {
-    		FileWriter fileWriter = new FileWriter(file);
+    		FileWriter fileWriter = new FileWriter(file + ".feature");
     		fileWriter.write(content);
     		fileWriter.close();
     		

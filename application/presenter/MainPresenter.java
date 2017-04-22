@@ -8,9 +8,13 @@ import java.io.PrintStream;
 import java.net.URL;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import javax.print.attribute.standard.DialogTypeSelection;
+
 import java.util.Collection;
 
 
@@ -22,11 +26,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.DialogEvent;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -44,6 +52,8 @@ import org.fxmisc.richtext.RichTextChange;
 import org.fxmisc.richtext.StyleClassedTextArea;
 import org.fxmisc.richtext.StyleSpans;
 import org.fxmisc.richtext.StyleSpansBuilder;
+
+import org.controlsfx.dialog.*;
 
 public class MainPresenter {
 
@@ -104,14 +114,26 @@ public class MainPresenter {
     @FXML
     private Label nameLabel;
 
-    @FXML CodeArea code;
+    @FXML 
+    private CodeArea code;
 
     @FXML
     private TextArea console;
     
  // Non FXML Items
+    
+ // Creation of a new PrintStream object   
     private PrintStream ps;
+    
+ // Buttons used for the exit application java alert box    
+    private ButtonType saveAlertButton = new ButtonType ("Save");
+    private ButtonType closeAlertButton = new ButtonType ("Do Not Save");
+    private ButtonType cancelAlertButton = new ButtonType ("Cancel");
 
+ // Buttons used for the new test case alert box
+    private ButtonType yesAlertButton = new ButtonType ("Yes");
+    private ButtonType noAlertButton = new ButtonType ("No");
+    
     @FXML
     public void ActivateConsole(ActionEvent event) {
         System.setOut(ps);
@@ -130,20 +152,43 @@ public class MainPresenter {
     }
 
     @FXML
-    public void OpenCloseAlert(ActionEvent event) {
-		try {
-			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/CloseAlertBox.fxml"));
-			Parent parent1 = (Parent) fxmlLoader.load();
-			Stage stage = new Stage();
-			stage.setTitle("Are you sure you want to exit?");
-			stage.initModality(Modality.APPLICATION_MODAL);
-			stage.initStyle(StageStyle.DECORATED);
-			stage.setScene(new Scene(parent1));
-			stage.show();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+   
+    public void OpenCloseAlert(ActionEvent event){
+    Alert alert = new Alert(AlertType.WARNING);
+    alert.initStyle(StageStyle.DECORATED);
+    alert.setTitle("Exit Application");
+    alert.setHeaderText("Are you sure you want to exit this application?");
+    alert.setContentText("Any unsaved progress will be deleted.");
+    
+    alert.getButtonTypes().setAll(saveAlertButton, closeAlertButton, cancelAlertButton);
+    
+    Optional<ButtonType> result  = alert.showAndWait();
+    if (result.get() == saveAlertButton){
+    	SaveFile(event);
+    } else if (result.get() == closeAlertButton) {
+    	ExitApplication(event);
+    } else if (result.get() == cancelAlertButton) {
+    	alert.close();
     }
+    
+    }
+    
+//    public void OpenCloseAlert(ActionEvent event) {
+//		try {
+//			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/CloseAlertBox.fxml"));
+//			Parent parent1 = (Parent) fxmlLoader.load();
+//			Stage dialogStage = new Stage();
+//			dialogStage.setTitle("Help Guide");
+//			dialogStage.initModality(Modality.WINDOW_MODAL);
+//			dialogStage.initStyle(StageStyle.DECORATED);
+//		//	dialogStage.initOwner(dialogStage);
+//			dialogStage.setScene(new Scene(parent1));
+//			dialogStage.show();
+//			
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//    }
 
     @FXML
     public void OpenFile(ActionEvent event) {
@@ -188,7 +233,21 @@ public class MainPresenter {
     
     @FXML
     public void newFile(){
-    	code.replaceText("");
+        Alert alert = new Alert(AlertType.WARNING);
+        alert.initStyle(StageStyle.DECORATED);
+        alert.setTitle("New Test Case");
+        alert.setHeaderText("Are you sure you want to create a new test case?");
+        alert.setContentText("Any unsaved progress will be deleted.");
+        
+        alert.getButtonTypes().setAll(yesAlertButton, noAlertButton);
+        
+        Optional<ButtonType> result  = alert.showAndWait();
+        if (result.get() == yesAlertButton){
+        	code.getText();
+        	code.replaceText("");
+        } else if (result.get() == noAlertButton) {
+        	alert.close();
+        }
     }
 
 	public void initialize(URL location, ResourceBundle resources) {
