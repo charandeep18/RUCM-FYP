@@ -84,7 +84,7 @@
       <SplitPane dividerPositions="0.5" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <items>
             <CodeArea fx:id="code" />
-            <TextArea fx:id="console" editable="false" prefHeight="693.0" prefWidth="512.0" />
+            <TextArea fx:id="console"/>
          </items>
       </SplitPane>
    </center>

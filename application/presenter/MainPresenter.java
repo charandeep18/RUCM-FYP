@@ -127,14 +127,18 @@ public class MainPresenter {
     private ButtonType yesAlertButton = new ButtonType ("Yes");
     private ButtonType noAlertButton = new ButtonType ("No");
     
+    
+    public void initialize(URL location, ResourceBundle resources) {
+    	ps = new PrintStream(new Console(console));
+	}
+    
     @FXML
     public void ActivateConsole(ActionEvent event) {
-        System.setOut(ps);
+        //System.setOut(ps);
         System.setErr(ps);
-        System.out.println("Hello World");
-        
-    String [] textarray = code.getText().split("\\n");  
-    System.out.println(textarray);    
+        System.out.println("Hello World");        
+        String [] textarray = code.getText().split("\\n");  
+        System.out.println(textarray);    
     }
 
     @FXML
@@ -166,7 +170,6 @@ public class MainPresenter {
     
     }
     
-
     @FXML
     public void OpenFile(ActionEvent event) {
     	// Setting the filter to show only feature files
@@ -228,9 +231,7 @@ public class MainPresenter {
         }
     }
 
-	public void initialize(URL location, ResourceBundle resources) {
-		ps = new PrintStream(new Console(console));
-	}
+
 
 	public CodeArea getText() {
 		return code;

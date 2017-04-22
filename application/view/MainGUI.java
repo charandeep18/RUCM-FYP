@@ -28,13 +28,11 @@ public class MainGUI extends Application {
 			Parent root = FXMLLoader.load(getClass().getResource("MainView.fxml"));	
 			
 			
-			//  Code used to attempt to bring in the CSS Colour changes into th GUI
+			//  Code used to attempt to bring in the CSS Colour changes into the GUI
 			//	leftCode.setParagraphGraphicFactory(LineNumberFactory.get(leftCode));
 			//        leftCode.richChanges().filter(ch -> !ch.getInserted().equals(ch.getRemoved())).subscribe(change -> {
 			  //      leftCode.setStyleSpans(0, CodeSyntax.computeHighlighting(leftCode.getText()));
 			//        });	
-			
-			
 			
 			mainStage.setTitle("RUCM Application");
 				mainStage.setScene(new Scene(root, 694, 623));	
