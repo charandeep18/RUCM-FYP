@@ -13,7 +13,7 @@ import javafx.collections.ObservableList;
 
 import presenter.MainPresenter;
 
-public class saveFile {
+public class SaveFile {
 
 	public static void savetext(String content, File file) {
     	try {
@@ -23,7 +23,7 @@ public class saveFile {
     		
     	} catch (IOException ex) {
     		Logger.getLogger(
-    				saveFile.class.getName()).log(
+    				SaveFile.class.getName()).log(
     						Level.SEVERE, null, ex);
     	}
 		

@@ -16,7 +16,7 @@ import javafx.scene.control.SplitPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import model.saveFile;
+import model.SaveFile;
  
 
 public class CloseAlertPresenter {

@@ -54,28 +54,29 @@
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
         </columnConstraints>
         <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+           <RowConstraints maxHeight="114.80001831054688" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="128.4000244140625" minHeight="10.0" prefHeight="52.199981689453125" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="75.79998779296875" minHeight="10.0" prefHeight="23.5999755859375" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Button fx:id="saveButton" alignment="CENTER" mnemonicParsing="false" onAction="#SaveFile" prefHeight="31.0" prefWidth="170.0" text="Save Test Case" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Button fx:id="loadButton" alignment="CENTER" mnemonicParsing="false" onAction="#OpenFile" prefHeight="31.0" prefWidth="181.0" text="Load Test Case" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button fx:id="createStepDefsButton" mnemonicParsing="false" onAction="#ActivateConsole" prefHeight="31.0" prefWidth="203.0" text="Create Step Defs" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Button fx:id="createStepDefsButton" mnemonicParsing="false" onAction="#ActivateConsole" prefHeight="31.0" prefWidth="203.0" text="Create Step Defintions" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <Button fx:id="closeButton" mnemonicParsing="false" onAction="#OpenCloseAlert" prefHeight="31.0" prefWidth="220.0" text="Exit Application" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Label fx:id="nameLabel" prefHeight="21.0" prefWidth="204.0" text="Created by Charandeep Rai for Aston University" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="6">
+            <Label fx:id="nameLabel" prefHeight="21.0" prefWidth="204.0" text="Created by Charandeep Rai for Aston University" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="7">
                <font>
                   <Font name="Calibri" size="15.0" />
                </font>
             </Label>
-            <Button fx:id="newButton" alignment="CENTER" mnemonicParsing="false" onAction="#newFile" prefHeight="31.0" prefWidth="181.0" text="Create a New Test Case" textAlignment="CENTER" GridPane.columnIndex="1" />
-            <Separator prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <Separator prefWidth="200.0" GridPane.rowIndex="5" />
-            <Separator prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <Button fx:id="newButton" alignment="CENTER" mnemonicParsing="false" onAction="#newFile" prefHeight="31.0" prefWidth="181.0" text="Create a New Feature File" textAlignment="CENTER" GridPane.columnIndex="1" />
+            <Separator prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Separator prefWidth="200.0" GridPane.rowIndex="6" />
+            <Separator prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
          </children>
       </GridPane>
    </left>

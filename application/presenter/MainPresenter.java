@@ -27,7 +27,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.DialogEvent;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
@@ -43,17 +42,11 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import model.Console;
-import model.openFile;
-import model.saveFile;
+import model.OpenFile;
+import model.SaveFile;
 
 import org.fxmisc.richtext.CodeArea;
-import org.fxmisc.richtext.LineNumberFactory;
-import org.fxmisc.richtext.RichTextChange;
-import org.fxmisc.richtext.StyleClassedTextArea;
-import org.fxmisc.richtext.StyleSpans;
-import org.fxmisc.richtext.StyleSpansBuilder;
 
-import org.controlsfx.dialog.*;
 
 public class MainPresenter {
 
@@ -138,7 +131,7 @@ public class MainPresenter {
     public void ActivateConsole(ActionEvent event) {
         System.setOut(ps);
         System.setErr(ps);
-      //  System.out.println("Hello World");
+        System.out.println("Hello World");
         
     String [] textarray = code.getText().split("\\n");  
     System.out.println(textarray);    
@@ -173,35 +166,18 @@ public class MainPresenter {
     
     }
     
-//    public void OpenCloseAlert(ActionEvent event) {
-//		try {
-//			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/CloseAlertBox.fxml"));
-//			Parent parent1 = (Parent) fxmlLoader.load();
-//			Stage dialogStage = new Stage();
-//			dialogStage.setTitle("Help Guide");
-//			dialogStage.initModality(Modality.WINDOW_MODAL);
-//			dialogStage.initStyle(StageStyle.DECORATED);
-//		//	dialogStage.initOwner(dialogStage);
-//			dialogStage.setScene(new Scene(parent1));
-//			dialogStage.show();
-//			
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//    }
 
     @FXML
     public void OpenFile(ActionEvent event) {
-    	// Setting the filter to show only text files
-    //	FileChooser.ExtensionFilter filter = new FileChooser.ExtensionFilter("TXT Files (*.txt)","*.txt");
-    	
+    	// Setting the filter to show only feature files
+    	FileChooser.ExtensionFilter filter = new FileChooser.ExtensionFilter("Feature Files (*.feature)","*.feature");
     	FileChooser filechooser = new FileChooser();
-    	//filechooser.getExtensionFilters().add(filter);
+    	filechooser.getExtensionFilters().add(filter);
     	filechooser.setTitle("Open File");
    	
     	File file = filechooser.showOpenDialog(MainStage.getScene().getWindow());
     	if(file != null){
-    	code.replaceText(openFile.readFile(file));
+    	code.replaceText(OpenFile.readFile(file));
     }
     }
     @FXML
@@ -223,11 +199,13 @@ public class MainPresenter {
 
     @FXML
     public void SaveFile(ActionEvent event) {
+    	FileChooser.ExtensionFilter filter = new FileChooser.ExtensionFilter("Feature Files (*.feature)","*.feature");
     	FileChooser fileChooser = new FileChooser();
+    	fileChooser.getExtensionFilters().add(filter);
     	fileChooser.setTitle("Save File");
 		File file = fileChooser.showSaveDialog(MainStage.getScene().getWindow());
 		if (file != null) {
-			saveFile.savetext(code.getText(), file);
+			SaveFile.savetext(code.getText(), file);
 		}
     }
     
@@ -235,8 +213,8 @@ public class MainPresenter {
     public void newFile(){
         Alert alert = new Alert(AlertType.WARNING);
         alert.initStyle(StageStyle.DECORATED);
-        alert.setTitle("New Test Case");
-        alert.setHeaderText("Are you sure you want to create a new test case?");
+        alert.setTitle("New Feature File");
+        alert.setHeaderText("Are you sure you want to create a new feature file?");
         alert.setContentText("Any unsaved progress will be deleted.");
         
         alert.getButtonTypes().setAll(yesAlertButton, noAlertButton);

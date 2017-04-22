@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 
 
 
-public class openFile {
+public class OpenFile {
 
     public static String readFile(File file){
     	//Brings in the BufferedReader IO Library from Java
