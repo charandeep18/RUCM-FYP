@@ -77,4 +77,10 @@
     </dependency>
   </dependencies>
   
+  <dependency>
+    <groupId>com.puppycrawl.tools</groupId>
+    <artifactId>checkstyle</artifactId>
+    <version>7.6.1</version>
+</dependency>
+  
 </project>

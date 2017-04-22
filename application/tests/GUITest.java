@@ -21,16 +21,7 @@
 //import javafx.stage.Stage;
 //
 //public class GUITest extends ApplicationTest{
-//
-//     Button loadButton;    
-//     Button closeButton;
-//     Button saveButton;
-//     Button validateButton;
-//
 //   
-//
-//     
-//     
 //	@Override
 //	public void start(Stage stage) throws Exception {
 //		Parent loadNode = FXMLLoader.load(getClass().getResource("/view/GherkinView.fxml"));
@@ -39,26 +30,26 @@
 //		stage.toFront();
 //	}
 //	
-////	public <T extends Node> T find (final String query){
-////		return lookup
+//	public <T extends Node> T find (final String query){
+//		return lookup
 ////	}
-//	
-//	@Before
-//	public void setUp(){
-////		loadButton = find("#loadButton");
-//		
-//		
-//	}
-//	
+////	
+////	@Before
+////	public void setUp(){
+//////		loadButton = find("#loadButton");
+////		
+////		
+////	}
+////	
+////
+////	@After
+////	public void stop() throws TimeoutException{
+////	FxToolkit.hideStage();
+////	release(new KeyCode[] {
+////	});
+////	release(new MouseButton[]{
+////	});
+////	}
+////	
 //
-//	@After
-//	public void stop() throws TimeoutException{
-//	FxToolkit.hideStage();
-//	release(new KeyCode[] {
-//	});
-//	release(new MouseButton[]{
-//	});
-//	}
-//	
-
-//
+////
