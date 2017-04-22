@@ -19,28 +19,21 @@
    <top>
       <MenuBar fx:id="MenuBar" BorderPane.alignment="CENTER">
         <menus>
-          <Menu fx:id="menuFile" mnemonicParsing="false" text="File">
+          <Menu fx:id="menuFile" text="File">
             <items>
-              <MenuItem fx:id="saveContents" mnemonicParsing="false" onAction="#SaveFile" text="Save Text File" />
-                  <MenuItem fx:id="loadFile" mnemonicParsing="false" onAction="#OpenFile" text="Load Text File" />
-                  <MenuItem fx:id="exit" mnemonicParsing="false" onAction="#ExitApplication" text="Close Program" />
+              <MenuItem fx:id="saveContents"  onAction="#SaveFile" text="Save Text File" />
+                  <MenuItem fx:id="loadFile"  onAction="#OpenFile" text="Load Text File" />
+                  <MenuItem fx:id="exit"  onAction="#OpenCloseAlert" text="Close Program" />
             </items>
           </Menu>
-          <Menu fx:id="menuView" mnemonicParsing="false" text="View">
+          <Menu fx:id="menuView"  text="View">
             <items>
-                  <MenuItem mnemonicParsing="false" text="Gherkin/RUCM" />
-              <MenuItem mnemonicParsing="false" text="Selenium" />
+                  <MenuItem  text="Gherkin/RUCM" />
             </items>
           </Menu>
-            <Menu fx:id="menuRunOptions" mnemonicParsing="false" text="Run Options">
+            <Menu fx:id="menuHelp"  onAction="#OpenHelp" text="Help">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Open Chrome" />
-                  <MenuItem mnemonicParsing="false" text="Open FireFox" />
-               </items>
-            </Menu>
-            <Menu fx:id="menuHelp" mnemonicParsing="false" onAction="#OpenHelp" text="Help">
-               <items>
-                  <MenuItem fx:id="helpMenuItem" mnemonicParsing="false" onAction="#OpenHelp" text="Help" />
+                  <MenuItem fx:id="helpMenuItem"  onAction="#OpenHelp" text="Help" />
                </items>
             </Menu>
         </menus>
@@ -58,22 +51,22 @@
           <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
-           <RowConstraints maxHeight="114.80001831054688" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="128.4000244140625" minHeight="10.0" prefHeight="52.199981689453125" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="75.79998779296875" minHeight="10.0" prefHeight="23.5999755859375" vgrow="SOMETIMES" />
+           <RowConstraints maxHeight="115" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="130" minHeight="10.0" prefHeight="52.199981689453125" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="75" minHeight="10.0" prefHeight="23.5999755859375" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="saveButton" alignment="CENTER" mnemonicParsing="false" onAction="#SaveFile" prefHeight="31.0" prefWidth="170.0" text="Save Test Case" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Button fx:id="loadButton" alignment="CENTER" mnemonicParsing="false" onAction="#OpenFile" prefHeight="31.0" prefWidth="181.0" text="Load Test Case" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button fx:id="createStepDefsButton" mnemonicParsing="false" onAction="#ActivateConsole" prefHeight="31.0" prefWidth="203.0" text="Create Step Defintions" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Button fx:id="closeButton" mnemonicParsing="false" onAction="#OpenCloseAlert" prefHeight="31.0" prefWidth="220.0" text="Exit Application" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Button fx:id="saveButton" alignment="CENTER"  onAction="#SaveFile" prefHeight="31.0" prefWidth="170.0" text="Save Test Case" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Button fx:id="loadButton" alignment="CENTER"  onAction="#OpenFile" prefHeight="31.0" prefWidth="181.0" text="Load Test Case" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button fx:id="createStepDefsButton"  onAction="#ActivateConsole" prefHeight="31.0" prefWidth="203.0" text="Create Step Defintions" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Button fx:id="closeButton"  onAction="#OpenCloseAlert" prefHeight="31.0" prefWidth="220.0" text="Exit Application" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <Label fx:id="nameLabel" prefHeight="21.0" prefWidth="204.0" text="Created by Charandeep Rai for Aston University" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="7">
                <font>
-                  <Font name="Calibri" size="15.0" />
+                  <Font name="Calibri" size="11.0" />
                </font>
             </Label>
-            <Button fx:id="newButton" alignment="CENTER" mnemonicParsing="false" onAction="#newFile" prefHeight="31.0" prefWidth="181.0" text="Create a New Feature File" textAlignment="CENTER" GridPane.columnIndex="1" />
+            <Button fx:id="newButton" alignment="CENTER"  onAction="#newFile" prefHeight="31.0" prefWidth="181.0" text="Create a New Feature File" textAlignment="CENTER" GridPane.columnIndex="1" />
             <Separator prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
             <Separator prefWidth="200.0" GridPane.rowIndex="6" />
             <Separator prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
@@ -84,7 +77,7 @@
       <SplitPane dividerPositions="0.5" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <items>
             <CodeArea fx:id="code" />
-            <TextArea fx:id="console"/>
+            <TextArea fx:id="console" editable="false" prefHeight="693.0" prefWidth="512.0" />
          </items>
       </SplitPane>
    </center>

@@ -48,7 +48,7 @@ import model.SaveFile;
 import org.fxmisc.richtext.CodeArea;
 
 
-public class MainPresenter {
+public class MainPresenter implements Initializable {
 
     @FXML
     private BorderPane MainStage;
@@ -127,16 +127,18 @@ public class MainPresenter {
     private ButtonType yesAlertButton = new ButtonType ("Yes");
     private ButtonType noAlertButton = new ButtonType ("No");
     
-    
+    @Override
     public void initialize(URL location, ResourceBundle resources) {
     	ps = new PrintStream(new Console(console));
 	}
     
     @FXML
     public void ActivateConsole(ActionEvent event) {
-        //System.setOut(ps);
+        System.setOut(ps);
         System.setErr(ps);
         System.out.println("Hello World");        
+      
+        //Starting the implementation of 
         String [] textarray = code.getText().split("\\n");  
         System.out.println(textarray);    
     }
