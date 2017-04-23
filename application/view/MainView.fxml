@@ -57,6 +57,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
+            <Button fx:id="newButton" alignment="CENTER"  onAction="#newFile" prefHeight="31.0" prefWidth="181.0" text="Create a New Feature File" textAlignment="CENTER" GridPane.columnIndex="1" />
             <Button fx:id="saveButton" alignment="CENTER"  onAction="#SaveFile" prefHeight="31.0" prefWidth="170.0" text="Save Test Case" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Button fx:id="loadButton" alignment="CENTER"  onAction="#OpenFile" prefHeight="31.0" prefWidth="181.0" text="Load Test Case" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Button fx:id="createStepDefsButton"  onAction="#ActivateConsole" prefHeight="31.0" prefWidth="203.0" text="Create Step Defintions" GridPane.columnIndex="1" GridPane.rowIndex="3" />
@@ -66,7 +67,6 @@
                   <Font name="Calibri" size="11.0" />
                </font>
             </Label>
-            <Button fx:id="newButton" alignment="CENTER"  onAction="#newFile" prefHeight="31.0" prefWidth="181.0" text="Create a New Feature File" textAlignment="CENTER" GridPane.columnIndex="1" />
             <Separator prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
             <Separator prefWidth="200.0" GridPane.rowIndex="6" />
             <Separator prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />

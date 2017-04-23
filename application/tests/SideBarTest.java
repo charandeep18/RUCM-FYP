@@ -19,9 +19,8 @@ public class SideBarTest extends AbstractTest {
 	final String LOAD_BUTTON = "#loadButton";
 	final String SAVE_BUTTON = "#saveButton";
 	final String CLOSE_BUTTON = "#closeButton";
-	final String VALIDATE_BUTTON = "#validateButton";
 	final String STEPDEFS_BUTTON = "#createStepDefsButton";
-	final String SELENIUM_BUTTON = "#seleniumViewButton";
+	final String NEW_BUTTON = "#newButton";
 	final String LABEL = "#nameLabel";
 	
 	@Test
@@ -32,53 +31,44 @@ public class SideBarTest extends AbstractTest {
 	}
 	
 	@Test
-	public void clickOnSaveButton(String Content, File file){
-		file = new File("text.txt");
-		FileChooser filechooser = new FileChooser();
-		
+	public void clickOnSaveButton(){
 		verifyThat(SAVE_BUTTON, NodeMatchers.isNotNull());
 		verifyThat(SAVE_BUTTON, NodeMatchers.hasText("Save Test Case"));
 		clickOn("#saveButton");
-		
-		//assertThat(filechooser.)
-		
-		
 	}
 	
-	@Test
-	public void clickOnValidateButton(){
-		verifyThat(VALIDATE_BUTTON, NodeMatchers.isNotNull());
-		verifyThat(VALIDATE_BUTTON, NodeMatchers.hasText("Validate Script"));
-		clickOn("#validateButton");
-	}
+
 	
 	@Test
 	public void clickOnStepDefsButton(){
 		verifyThat(STEPDEFS_BUTTON, NodeMatchers.isNotNull());
-		verifyThat(STEPDEFS_BUTTON, NodeMatchers.hasText("Create Step Defs"));
+		verifyThat(STEPDEFS_BUTTON, NodeMatchers.isVisible());
+		verifyThat(STEPDEFS_BUTTON, NodeMatchers.hasText("Create Step Defintions"));
 		clickOn("#createStepDefsButton");
 	}
 	
 	@Test
-	public void clickOnSeleniumButton(){
-		verifyThat(SELENIUM_BUTTON, NodeMatchers.isNotNull());
-		verifyThat(SELENIUM_BUTTON, NodeMatchers.hasText("Selenium View"));
-		clickOn("#seleniumViewButton");
+	public void clickOnNewButton(){
+		verifyThat(NEW_BUTTON, NodeMatchers.isNotNull());
+		verifyThat(NEW_BUTTON, NodeMatchers.isVisible());
+		verifyThat(NEW_BUTTON, NodeMatchers.hasText("Create a New Feature File"));
+		clickOn("#newButton");
 	}
-	
+
 	@Test
 	public void checkLabelExists(){	
 		verifyThat(LABEL, NodeMatchers.isNotNull());
-		verifyThat(LABEL, NodeMatchers.hasText("Created by Charandeep Rai"));
+		verifyThat(LABEL, NodeMatchers.isVisible());
+		verifyThat(LABEL, NodeMatchers.hasText("Created by Charandeep Rai for Aston University"));
 	}
 
 	
-	//Commented out due to tests hanging with close button 
-//	@Test
-//	public void clickOnCloseButton(){
-//		verifyThat(CLOSE_BUTTON, NodeMatchers.isNotNull());
-//		verifyThat(CLOSE_BUTTON, NodeMatchers.hasText("Exit Application"));
-//		clickOn("#closeButton");
-//	}
+	@Test
+	public void clickOnCloseButton(){
+		verifyThat(CLOSE_BUTTON, NodeMatchers.isNotNull());
+		verifyThat(CLOSE_BUTTON, NodeMatchers.isVisible());
+		verifyThat(CLOSE_BUTTON, NodeMatchers.hasText("Exit Application"));
+		//clickOn("#closeButton");
+	}
 	
 }
