@@ -67,9 +67,9 @@
                   <Font name="Calibri" size="11.0" />
                </font>
             </Label>
-            <Separator prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <Separator prefWidth="200.0" GridPane.rowIndex="6" />
-            <Separator prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+            <Separator fx:id ="leftSeperator" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Separator fx:id ="centerSeperator" prefWidth="200.0" GridPane.rowIndex="6" />
+            <Separator fx:id ="rightSeperator" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
          </children>
       </GridPane>
    </left>

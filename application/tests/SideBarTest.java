@@ -22,6 +22,9 @@ public class SideBarTest extends AbstractTest {
 	final String STEPDEFS_BUTTON = "#createStepDefsButton";
 	final String NEW_BUTTON = "#newButton";
 	final String LABEL = "#nameLabel";
+	final String LEFT_SEPERATOR = "#leftSeperator";
+	final String CENTER_SEPERATOR = "#centerSeperator";
+	final String RIGHT_SEPERATOR = "#rightSeperator";
 	
 	@Test
 	public void clickOnLoadButton(){
@@ -36,9 +39,7 @@ public class SideBarTest extends AbstractTest {
 		verifyThat(SAVE_BUTTON, NodeMatchers.hasText("Save Test Case"));
 		clickOn("#saveButton");
 	}
-	
 
-	
 	@Test
 	public void clickOnStepDefsButton(){
 		verifyThat(STEPDEFS_BUTTON, NodeMatchers.isNotNull());
@@ -60,6 +61,16 @@ public class SideBarTest extends AbstractTest {
 		verifyThat(LABEL, NodeMatchers.isNotNull());
 		verifyThat(LABEL, NodeMatchers.isVisible());
 		verifyThat(LABEL, NodeMatchers.hasText("Created by Charandeep Rai for Aston University"));
+	}
+	
+	@Test
+	public void checkSeperatorExists(){
+		verifyThat(LEFT_SEPERATOR, NodeMatchers.isNotNull());
+		verifyThat(LEFT_SEPERATOR, NodeMatchers.isVisible());
+		verifyThat(CENTER_SEPERATOR, NodeMatchers.isNotNull());
+		verifyThat(CENTER_SEPERATOR, NodeMatchers.isVisible());
+		verifyThat(RIGHT_SEPERATOR, NodeMatchers.isNotNull());
+		verifyThat(RIGHT_SEPERATOR, NodeMatchers.isVisible());
 	}
 
 	
