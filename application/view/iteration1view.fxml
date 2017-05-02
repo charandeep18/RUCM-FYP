@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presenter.MainPresenter">
+   <children>
+      <SplitPane dividerPositions="0.29797979797979796" layoutY="31.0" prefHeight="570.0" prefWidth="600.0">
+        <items>
+          <AnchorPane fx:id="anchorPane" minHeight="0.0" minWidth="0.0" prefHeight="403.0" prefWidth="174.0">
+               <children>
+                  <GridPane fx:id="gridPane" layoutX="1.0" layoutY="114.0" prefHeight="324.0" prefWidth="174.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button fx:id="createDefinition" mnemonicParsing="false" prefHeight="31.0" prefWidth="139.0" text="Create Step Defs" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Button fx:id="exitApplication" mnemonicParsing="false" prefHeight="31.0" prefWidth="127.0" text="Exit Application" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Button fx:id="saveCase" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="Save Test Case" GridPane.columnIndex="1" />
+                        <Button fx:id="loadCase" alignment="CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="137.0" text="Load Test Case" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                     </children>
+                  </GridPane>
+               </children></AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="385.0" prefWidth="416.0">
+               <children>
+                  <TextArea fx:id="gherkinTextArea" prefHeight="251.0" prefWidth="416.0" text="Sample Gherkin Script:&#10;&#10;Feature: Openwebpage&#10;This is going to be a test to ensure that the selenium &#10;webdriver is able to open up the tests as intended.&#10;&#10;Scenario: Successfully opening Website.&#10;&#10;Given user navigates to Website&#10;&#10;Then navigate to Link-1 Homepage &#10;&#10;" wrapText="true" />
+                  <TextArea fx:id="consoleArea" layoutY="262.0" prefHeight="296.0" prefWidth="416.0" text="Step Definitions:&#10;&#10;Produces the step definitions from the console" wrapText="true" />
+               </children></AnchorPane>
+        </items>
+      </SplitPane>
+      <MenuBar fx:id="menuBar" prefHeight="32.0" prefWidth="600.0">
+        <menus>
+          <Menu fx:id="menuFile" mnemonicParsing="false" text="File">
+            <items>
+                  <MenuItem fx:id="menuItemSave1" mnemonicParsing="false" text="Load Test Case" />
+              <MenuItem fx:id="menuItemSave" mnemonicParsing="false" text="Save Test Case" />
+                  <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu fx:id="menuView" mnemonicParsing="false" text="View">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Selenium" />
+                  <MenuItem mnemonicParsing="false" text="Gherkin/RUCM" />
+            </items>
+          </Menu>
+            <Menu fx:id="menuHelp" mnemonicParsing="false" text="Help">
+               <items>
+                  <MenuItem fx:id="menuItemHelp" mnemonicParsing="false" text="Help" />
+               </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+   </children>
+</AnchorPane>

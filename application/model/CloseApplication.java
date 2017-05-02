@@ -4,8 +4,8 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 
 public class CloseApplication {
-
-	public void ExitApplication() {
+	
+	public static void ExitApplication(ActionEvent event) {
 		Platform.exit();
 		System.exit(0);
 		System.out.println("Program has closed successfully");

@@ -6,22 +6,21 @@ package view;
 
 import java.io.IOException;
 
+//Imports used from the RichTextFX library as well as imports from Model and View classes. 
 import org.fxmisc.richtext.CodeArea;
 import org.fxmisc.richtext.LineNumberFactory;
+import model.CodeSyntax;
+import presenter.MainPresenter;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import presenter.MainPresenter;
-import java.awt.*;
 
-import model.CodeSyntax;
+
 
 public class MainGUI extends Application {
-
-	private CodeArea leftCode;
 
 	@Override
 	public void start(Stage mainStage) throws Exception {

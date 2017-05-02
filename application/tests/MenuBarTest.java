@@ -9,40 +9,67 @@ import org.testfx.util.WaitForAsyncUtils;
 
 public class MenuBarTest extends AbstractTest {
 
-	final String MENU_BAR ="#MenuBar"; 
-	final String MENU_FILE ="#menuFile";
+	//final String MENU_BAR ="#MenuBar"; 
+	//final String MENU_FILE ="#menuFile";
 	final String MENU_VIEW ="#menuView";
 	final String MENU_RUNOPTIONS="#menuRunOptions";
 	final String MENU_HELP="#menuHelp";
 	final String SAVE_CONTENTS = "#saveContents";
 	final String LOAD_CONTENTS = "#loadFile";
-	final String EXIT_APPLICATION = "#exit";
+	//final String EXIT_APPLICATION = "#exit";
 	final String MENU_HELPITEM="#helpMenuItem";
 	final String HELP_TABPANE="#helpTabPane";
+	
+	final String MENU_BAR ="#MenuBar"; 
+	final String MENU_FILE ="#menuFile";
+	final String SAVE_FILE ="#saveContents";
+	final String LOAD_FILE ="#loadFile";
+	final String TEST = "#test";
+	final String EXIT_APPLICATION = "#exit";
+			
 	
 	
 //	@Test
 //	public void closeApplicationTest(){
 //		clickOn("#menuFile");
-//		clickOn("#exit");
+//		verifyThat(EXIT_APPLICATION, NodeMatchers.isNotNull());
 //	}
 	
-	@Test
-	public void fileMenuTest(){
-		verifyThat(MENU_FILE, NodeMatchers.isNotNull());
-		verifyThat(MENU_FILE, NodeMatchers.hasText("File"));
-		clickOn("#menuFile");
-	}
+//	@Test
+//	public void fileMenuTest(){
+//		verifyThat(MENU_FILE, NodeMatchers.isNotNull());
+//		verifyThat(MENU_FILE, NodeMatchers.hasText("File"));
+//		clickOn("#menuFile");
+//	}
+	
+//	@Test
+//	public void sampleTest(){
+//		verifyThat(MENU_FILE, NodeMatchers.isNotNull());
+//		verifyThat(MENU_FILE, NodeMatchers.hasText("File"));
+//		clickOn("#menuFile");
+//	}
+	
+	
 	
 //	@Test
 //	public void loadFileMenuTest(){
 //		verifyThat(MENU_FILE, NodeMatchers.isNotNull());
 //		verifyThat(MENU_FILE, NodeMatchers.hasText("File"));
 //		clickOn("#menuFile");
-//		//verifyThat(LOAD_CONTENTS, NodeMatchers.isNotNull());
-//		//verifyThat(LOAD_CONTENTS, NodeMatchers.hasText("Load Text File"));
-//		clickOn("#loadFile");
+//		sleep(1000);
+//		verifyThat(LOAD_FILE, NodeMatchers.isNotNull());
 //	}
+	
+	
+	@Test
+	public void loadFileMenuTest(){
+		verifyThat(MENU_FILE, NodeMatchers.isNotNull());
+		verifyThat(MENU_FILE, NodeMatchers.hasText("File"));
+		clickOn("#menuFile");
+		verifyThat(LOAD_FILE, NodeMatchers.isNotNull());
+		verifyThat(LOAD_FILE, NodeMatchers.hasText("Load Text File"));
+		clickOn(LOAD_FILE);
+	}
 //	
 //	@Test
 //	public void saveFileMenuTest(){

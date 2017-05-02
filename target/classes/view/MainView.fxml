@@ -21,19 +21,20 @@
         <menus>
           <Menu fx:id="menuFile" text="File">
             <items>
-              <MenuItem fx:id="saveContents"  onAction="#SaveFile" text="Save Text File" />
-                  <MenuItem fx:id="loadFile"  onAction="#OpenFile" text="Load Text File" />
-                  <MenuItem fx:id="exit"  onAction="#OpenCloseAlert" text="Close Program" />
+              	  <MenuItem fx:id="newFile" onAction="#newFile" text="Open New File" />
+              	  <MenuItem fx:id="saveContents" onAction="#saveFile" text="Save Text File" />
+                  <MenuItem fx:id="loadFile" onAction="#openFile" text="Load Text File" />
+                  <MenuItem fx:id="exit" onAction="#openCloseAlert" text="Close Program" />
             </items>
           </Menu>
-          <Menu fx:id="menuView"  text="View">
+          <Menu fx:id="menuView" text="View">
             <items>
-                  <MenuItem  text="Gherkin/RUCM" />
+                  <MenuItem text="Gherkin/RUCM" />
             </items>
           </Menu>
-            <Menu fx:id="menuHelp"  onAction="#OpenHelp" text="Help">
+            <Menu fx:id="menuHelp" onAction="#openHelp" text="Help">
                <items>
-                  <MenuItem fx:id="helpMenuItem"  onAction="#OpenHelp" text="Help" />
+                  <MenuItem fx:id="helpMenuItem" onAction="#openHelp" text="Help" />
                </items>
             </Menu>
         </menus>
@@ -57,26 +58,26 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="newButton" alignment="CENTER"  onAction="#newFile" prefHeight="31.0" prefWidth="181.0" text="Create a New Feature File" textAlignment="CENTER" GridPane.columnIndex="1" />
-            <Button fx:id="saveButton" alignment="CENTER"  onAction="#SaveFile" prefHeight="31.0" prefWidth="170.0" text="Save Test Case" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Button fx:id="loadButton" alignment="CENTER"  onAction="#OpenFile" prefHeight="31.0" prefWidth="181.0" text="Load Test Case" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button fx:id="createStepDefsButton"  onAction="#ActivateConsole" prefHeight="31.0" prefWidth="203.0" text="Create Step Defintions" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Button fx:id="closeButton"  onAction="#OpenCloseAlert" prefHeight="31.0" prefWidth="220.0" text="Exit Application" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Label fx:id="nameLabel" prefHeight="21.0" prefWidth="204.0" text="Created by Charandeep Rai for Aston University" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="7">
+            <Button fx:id="newButton" alignment="CENTER" onAction="#newFile" prefHeight="31.0" prefWidth="181.0" text="Create a New Feature File" textAlignment="CENTER" GridPane.columnIndex="1" />
+            <Button fx:id="saveButton" alignment="CENTER" onAction="#saveFile" prefHeight="31.0" prefWidth="170.0" text="Save Test Case" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Button fx:id="loadButton" alignment="CENTER" onAction="#openFile" prefHeight="31.0" prefWidth="181.0" text="Load Test Case" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button fx:id="createStepDefsButton" onAction="#activateConsole" prefHeight="31.0" prefWidth="203.0" text="Create Step Defintions" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Button fx:id="closeButton" onAction="#openCloseAlert" prefHeight="31.0" prefWidth="220.0" text="Exit Application" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label fx:id="nameLabel" prefHeight="32.0" prefWidth="168.0" text="Created by Charandeep Rai for Aston University" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="7">
                <font>
                   <Font name="Calibri" size="11.0" />
                </font>
             </Label>
-            <Separator fx:id ="leftSeperator" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <Separator fx:id ="centerSeperator" prefWidth="200.0" GridPane.rowIndex="6" />
-            <Separator fx:id ="rightSeperator" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+            <Separator fx:id="leftSeperator" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Separator fx:id="centerSeperator" prefWidth="200.0" GridPane.rowIndex="6" />
+            <Separator fx:id="rightSeperator" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
          </children>
       </GridPane>
    </left>
    <center>
-      <SplitPane dividerPositions="0.5" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <SplitPane fx:id="splitPane" dividerPositions="0.5" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <items>
-            <CodeArea fx:id="code" />
+            <CodeArea fx:id="code" wrapText="true" />
             <TextArea fx:id="console" editable="false" prefHeight="693.0" prefWidth="512.0" />
          </items>
       </SplitPane>

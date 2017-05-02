@@ -9,7 +9,6 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,6 +21,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.Separator;
+import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -50,6 +51,9 @@ public class MainPresenter implements Initializable {
 	private Menu menuFile;
 
 	@FXML
+	private MenuItem newFile;
+	
+	@FXML
 	private MenuItem saveContents;
 
 	@FXML
@@ -60,9 +64,9 @@ public class MainPresenter implements Initializable {
 
 	@FXML
 	private Menu menuView;
-
+	
 	@FXML
-	private Menu menuRunOptions;
+	private Menu runOptions;
 
 	@FXML
 	private Menu menuHelp;
@@ -91,6 +95,15 @@ public class MainPresenter implements Initializable {
 
 	@FXML
 	private Label nameLabel;
+	
+	@FXML
+	private Separator leftSeperator;
+	
+	@FXML
+	private Separator centerSeperator;
+	
+	@FXML
+	private Separator rightSeperator;
 
 	// FXML for the CodeArea Panel and the Console Panel
 	@FXML
@@ -98,11 +111,61 @@ public class MainPresenter implements Initializable {
 
 	@FXML
 	private TextArea console;
+	
+	@FXML
+	private SplitPane splitPane;
 
 	// Non FXML Items
 	// Creation of a new PrintStream object
 	private PrintStream ps;
+	
+	// As the implementation of the project has not been fully realised, the exampleDefinitons file has been created to mimic the output
 
+	private String exampleDefinitions = String.join("\n"
+		, ")@Given(^user navigates to Website$)"
+		, "public void user_navigates_to_Website() {"
+		, "// Express the Regexp above with the code you wish you had"
+		, "throw new PendingException();"
+		, "}"
+		, ""
+		, "@Then(^they fill out the contact Name$)"
+		, "public void they_fill_out_the_contact_Name() {"
+		, "// Express the Regexp above with the code you wish you had"
+		, "throw new PendingException();"
+		, "}"
+		, ""
+		, "@Then(^ticks UOR check$)"
+		, "public void ticks_UOR_check() {"
+		, "// Express the Regexp above with the code you wish you had"
+		, "throw new PendingException();"
+		, "}"
+		, ""
+		, "@Then(^enters company as 'FoobarCorporation'$)"
+		, "public void enters_company_as(String arg1) {"
+		, "// Express the Regexp above with the code you wish you had"
+		, "throw new PendingException();"
+		, "}"
+		, ""
+		, "@Then(^enters Reigion as 'Birmingham'$)"
+		, "public void enters_Reigion_as(String arg1) {"
+		, "// Express the Regexp above with the code you wish you had"
+		, "throw new PendingException();"
+		, "}"
+		, ""
+		, "@Then(^clicks on Navigation One$)"
+		, "public void clicks_on_Navigation_One() {"
+		, "// Express the Regexp above with the code you wish you had"
+		, "throw new PendingException();"
+		, "}"
+		, ""
+		, "@Then(^checks to see if on Navigation One page$)"
+		, "public void checks_to_see_if_on_Navigation_One_page() {"
+		, "// Express the Regexp above with the code you wish you had"
+		, "throw new PendingException();"
+		, "}"
+		, ""
+);
+	
 	// Buttons used for the exit application java alert box
 	private ButtonType saveAlertButton = new ButtonType("Save");
 	private ButtonType closeAlertButton = new ButtonType("Do Not Save");
@@ -112,17 +175,9 @@ public class MainPresenter implements Initializable {
 	private ButtonType yesAlertButton = new ButtonType("Yes");
 	private ButtonType noAlertButton = new ButtonType("No");
 
-	// Code implemented for the Exit Application Method
-	@FXML
-	public void ExitApplication(ActionEvent event) {
-		Platform.exit();
-		System.exit(0);
-		System.out.println("Program has closed successfully");
-	}
-
 	//This method opens an alert box which is a new feature for JavaFX since JavaFX 8u40 - It implements the use of alert boxes
 	@FXML
-	public void OpenCloseAlert(ActionEvent event) {
+	public void openCloseAlert(ActionEvent event) {
 		Alert alert = new Alert(AlertType.WARNING);
 		alert.initStyle(StageStyle.DECORATED);
 		alert.setTitle("Exit Application");
@@ -133,9 +188,9 @@ public class MainPresenter implements Initializable {
 
 		Optional<ButtonType> result = alert.showAndWait();
 		if (result.get() == saveAlertButton) {
-			SaveFile(event);
+			saveFile(event);
 		} else if (result.get() == closeAlertButton) {
-			ExitApplication(event);ExitApplication(event);
+			CloseApplication.ExitApplication(event);
 		} else if (result.get() == cancelAlertButton) {
 			alert.close();
 		}
@@ -143,13 +198,12 @@ public class MainPresenter implements Initializable {
 	}
 
 	@FXML
-	public void OpenFile(ActionEvent event) {
-		// Setting the filter to show only feature files
+	public void openFile(ActionEvent event) {
+		// Setting the filter to show only feature files.
 		FileChooser.ExtensionFilter filter = new FileChooser.ExtensionFilter("Feature Files (*.feature)", "*.feature");
 		FileChooser filechooser = new FileChooser();
 		filechooser.getExtensionFilters().add(filter);
 		filechooser.setTitle("Open File");
-
 		File file = filechooser.showOpenDialog(MainStage.getScene().getWindow());
 		if (file != null) {
 			code.replaceText(OpenFile.readFile(file));
@@ -157,7 +211,7 @@ public class MainPresenter implements Initializable {
 	}
 
 	@FXML
-	public void OpenHelp(ActionEvent event) {
+	public void openHelp(ActionEvent event) {
 		try {
 			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/HelpView.fxml"));
 			Parent parent1 = (Parent) fxmlLoader.load();
@@ -174,14 +228,16 @@ public class MainPresenter implements Initializable {
 	}
 
 	@FXML
-	public void SaveFile(ActionEvent event) {
+	public void saveFile(ActionEvent event) {
+		//Specifies that the only file extensions that can be chosen are .feauture file extensions
 		FileChooser.ExtensionFilter filter = new FileChooser.ExtensionFilter("Feature Files (*.feature)", "*.feature");
 		FileChooser fileChooser = new FileChooser();
 		fileChooser.getExtensionFilters().add(filter);
 		fileChooser.setTitle("Save File");
 		File file = fileChooser.showSaveDialog(MainStage.getScene().getWindow());
 		if (file != null) {
-			SaveFile.savetext(code.getText(), file);
+			//Calls the saveText method for the text displayed in the CodeArea
+			SaveFile.saveText(code.getText(), file);
 		}
 	}
 
@@ -212,14 +268,13 @@ public class MainPresenter implements Initializable {
 
 	
 	@FXML
-	public void ActivateConsole(ActionEvent event) {
+	public void activateConsole(ActionEvent event) {
 		System.setOut(ps);
 		System.setErr(ps);
-		System.out.println("Hello World");
-
+		System.out.println(exampleDefinitions);
 		// Starting the implementation of
 		String[] textarray = code.getText().split("\\n");
-		System.out.println(textarray);
+		//System.out.println(textarray);
 	}
 	
 	public CodeArea getText() {

@@ -2,8 +2,10 @@ Feature: Validation
 This is going to be a test to ensure that the selenium webdriver is able to open up the tests as intended.
 
 Scenario: Checking validation of Reference Number
-Given user navigates to SAP site
+When user navigates to SAP site
 Then fills out Reference Number
+And fills out Contact Names
+And fills out the Description
 #But It should only be numeric
 
 Scenario: Checking validation of Contact Name

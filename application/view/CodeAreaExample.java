@@ -13,27 +13,24 @@ import org.fxmisc.richtext.StyleSpansBuilder;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
-import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
-public class LeftTextArea extends Application {
+public class CodeAreaExample extends Application {
 
 	@FXML
 	private CodeArea leftCode = new CodeArea();
 	
+
+	
 	//CodeArea -  defining the areas for coloured text:
 	 private static final String[] KEYWORDS = new String[] {
-				"Given", "Then", "And", "But", "Feature", "Scenario", "When", "Background"
+				"Given", "Then", "And", "But", "Feature", "Scenario", "When", "Background", "Scenario Outline", "Examples"
 	 };
 	 
 	 private static final String KEYWORD_PATTERNS = "\\b(" + String.join("|", KEYWORDS) + ")\\b";
-
 	 private static final String SEMICOLON = "\\;";
-
 	 private static final String STRING = "\"([^\"\\\\]|\\\\.)*\"";
-	 
 	 private static final String BRACKET =  "\\[|\\]";
-	 
 	 private static final String PARENTHESIS = "\\(|\\)";
 	
 	 
@@ -47,45 +44,42 @@ public class LeftTextArea extends Application {
 			 + "|(?<BRACKET>" + BRACKET + ")"
 			 + "|(?<PARENTHESIS>" + PARENTHESIS + ")"
 			 );
-	 
-	public void start(Stage primaryStage) throws Exception {
-		leftCode.setParagraphGraphicFactory(LineNumberFactory.get(leftCode));
-        leftCode.richChanges().filter(ch -> !ch.getInserted().equals(ch.getRemoved())).subscribe(change -> {
-        leftCode.setStyleSpans(0, computeHighlighting(leftCode.getText()));
-        });
-		
-		Scene scene = new Scene(leftCode, 500, 400);
-		scene.getStylesheets().add(LeftTextArea.class.getResource("GherkinView.css").toExternalForm());
-		primaryStage.setScene(scene);
-		primaryStage.show();
-	}
 
 	public static void main(String[] args) {
 		launch(args);
 	}
 	
-    private static StyleSpans<Collection<String>> computeHighlighting(String text) {
-        Matcher patternmatcher = PATTERN.matcher(text);
+    private static StyleSpans<Collection<String>> Highlighting(String text) {
+        Matcher matcher = PATTERN.matcher(text);
         StyleSpansBuilder<Collection<String>> spansBuilder = new StyleSpansBuilder<>();
         
-        int keywordend = 0;
-        
-        while(patternmatcher.find()) {
+        int end = 0;
+        while(matcher.find()) {
             String styleClass = 
-            patternmatcher.group("KEYWORD") != null ? "keyword" :
-            patternmatcher.group("SEMICOLON") != null ? "semicolon" : 
-            patternmatcher.group("STRING") != null ? "string" : 
-            patternmatcher.group("BRACKET")!= null ? "bracket" : 
-            patternmatcher.group("PARENTHESIS")!= null ? "parenthesis" :
+            matcher.group("KEYWORD") != null ? "keyword" :
+            matcher.group("SEMICOLON") != null ? "semicolon" : 
+            matcher.group("STRING") != null ? "string" : 
+            matcher.group("BRACKET")!= null ? "bracket" : 
+            matcher.group("PARENTHESIS")!= null ? "parenthesis" :
             null;
             assert styleClass != null;
-            spansBuilder.add(Collections.emptyList(), patternmatcher.start() - keywordend);
-            spansBuilder.add(Collections.singleton(styleClass), patternmatcher.end() - patternmatcher.start());
-            keywordend = patternmatcher.end();
+            spansBuilder.add(Collections.emptyList(), matcher.start() - end);
+            spansBuilder.add(Collections.singleton(styleClass), matcher.end() - matcher.start());
+            end = matcher.end();
         }
-        spansBuilder.add(Collections.emptyList(), text.length() - keywordend);
+        spansBuilder.add(Collections.emptyList(), text.length() - end);
         return spansBuilder.create();
     }
 	
-	
+		public void start(Stage primaryStage) throws Exception {
+		leftCode.setParagraphGraphicFactory(LineNumberFactory.get(leftCode));
+        leftCode.richChanges().filter(ch -> !ch.getInserted().equals(ch.getRemoved())).subscribe(change -> {
+        leftCode.setStyleSpans(0, Highlighting(leftCode.getText()));
+        });
+		
+		Scene scene = new Scene(leftCode, 500, 400);
+		scene.getStylesheets().add(CodeAreaExample.class.getResource("MainGUI.css").toExternalForm());
+		primaryStage.setScene(scene);
+		primaryStage.show();
+	}
 }
